@@ -1,0 +1,212 @@
+package com.jobchat.entity;
+
+import java.util.HashSet;
+import java.util.Set;
+
+import com.google.gson.annotations.Expose;
+
+/**
+ * JMessages entity. @author MyEclipse Persistence Tools
+ */
+
+@SuppressWarnings("serial")
+public class JMessages implements java.io.Serializable {
+
+	// Fields
+
+	@Expose
+	private Integer messagesId;
+	@Expose
+	private JUser JUser;
+	@Expose
+	private String messagesType;
+	@Expose
+	private String messagesInfo;
+	@Expose
+	private String messagesTime;
+	@Expose
+	private Integer messagesCollectnum;
+	@Expose
+	private Integer messagesCommentnum;
+	@Expose
+	private Integer messagesTranspondnum;
+	@Expose
+	private Integer messagesAgreenum;
+	@Expose
+	private Integer messagesReadnum;
+	@Expose
+	private String messagesPicture;
+	@Expose
+	private String messagesDevice;
+	@Expose
+	private Integer messagesStatus;
+	private Set JCollectionses = new HashSet(0);
+	private Set JCommentses = new HashSet(0);
+
+	// Constructors
+
+	/** default constructor */
+	public JMessages() {
+	}
+
+	/** minimal constructor */
+	public JMessages(JUser JUser, String messagesInfo, String messagesTime,
+			Integer messagesCollectnum, Integer messagesCommentnum,
+			Integer messagesTranspondnum, Integer messagesAgreenum,
+			Integer messagesReadnum) {
+		this.JUser = JUser;
+		this.messagesInfo = messagesInfo;
+		this.messagesTime = messagesTime;
+		this.messagesCollectnum = messagesCollectnum;
+		this.messagesCommentnum = messagesCommentnum;
+		this.messagesTranspondnum = messagesTranspondnum;
+		this.messagesAgreenum = messagesAgreenum;
+		this.messagesReadnum = messagesReadnum;
+	}
+
+	/** full constructor */
+	public JMessages(JUser JUser, String messagesType, String messagesInfo,
+			String messagesTime, Integer messagesCollectnum,
+			Integer messagesCommentnum, Integer messagesTranspondnum,
+			Integer messagesAgreenum, Integer messagesReadnum,
+			String messagesPicture, String messagesDevice,
+			Integer messagesStatus, Set JCollectionses, Set JCommentses) {
+		this.JUser = JUser;
+		this.messagesType = messagesType;
+		this.messagesInfo = messagesInfo;
+		this.messagesTime = messagesTime;
+		this.messagesCollectnum = messagesCollectnum;
+		this.messagesCommentnum = messagesCommentnum;
+		this.messagesTranspondnum = messagesTranspondnum;
+		this.messagesAgreenum = messagesAgreenum;
+		this.messagesReadnum = messagesReadnum;
+		this.messagesPicture = messagesPicture;
+		this.messagesDevice = messagesDevice;
+		this.messagesStatus = messagesStatus;
+		this.JCollectionses = JCollectionses;
+		this.JCommentses = JCommentses;
+	}
+
+	// Property accessors
+
+	public Integer getMessagesId() {
+		return this.messagesId;
+	}
+
+	public void setMessagesId(Integer messagesId) {
+		this.messagesId = messagesId;
+	}
+
+	public JUser getJUser() {
+		return this.JUser;
+	}
+
+	public void setJUser(JUser JUser) {
+		this.JUser = JUser;
+	}
+
+	public String getMessagesType() {
+		return this.messagesType;
+	}
+
+	public void setMessagesType(String messagesType) {
+		this.messagesType = messagesType;
+	}
+
+	public String getMessagesInfo() {
+		return this.messagesInfo;
+	}
+
+	public void setMessagesInfo(String messagesInfo) {
+		this.messagesInfo = messagesInfo;
+	}
+
+	public String getMessagesTime() {
+		return this.messagesTime;
+	}
+
+	public void setMessagesTime(String messagesTime) {
+		this.messagesTime = messagesTime;
+	}
+
+	public Integer getMessagesCollectnum() {
+		return this.messagesCollectnum;
+	}
+
+	public void setMessagesCollectnum(Integer messagesCollectnum) {
+		this.messagesCollectnum = messagesCollectnum;
+	}
+
+	public Integer getMessagesCommentnum() {
+		return this.messagesCommentnum;
+	}
+
+	public void setMessagesCommentnum(Integer messagesCommentnum) {
+		this.messagesCommentnum = messagesCommentnum;
+	}
+
+	public Integer getMessagesTranspondnum() {
+		return this.messagesTranspondnum;
+	}
+
+	public void setMessagesTranspondnum(Integer messagesTranspondnum) {
+		this.messagesTranspondnum = messagesTranspondnum;
+	}
+
+	public Integer getMessagesAgreenum() {
+		return this.messagesAgreenum;
+	}
+
+	public void setMessagesAgreenum(Integer messagesAgreenum) {
+		this.messagesAgreenum = messagesAgreenum;
+	}
+
+	public Integer getMessagesReadnum() {
+		return this.messagesReadnum;
+	}
+
+	public void setMessagesReadnum(Integer messagesReadnum) {
+		this.messagesReadnum = messagesReadnum;
+	}
+
+	public String getMessagesPicture() {
+		return this.messagesPicture;
+	}
+
+	public void setMessagesPicture(String messagesPicture) {
+		this.messagesPicture = messagesPicture;
+	}
+
+	public String getMessagesDevice() {
+		return this.messagesDevice;
+	}
+
+	public void setMessagesDevice(String messagesDevice) {
+		this.messagesDevice = messagesDevice;
+	}
+
+	public Integer getMessagesStatus() {
+		return this.messagesStatus;
+	}
+
+	public void setMessagesStatus(Integer messagesStatus) {
+		this.messagesStatus = messagesStatus;
+	}
+
+	public Set getJCollectionses() {
+		return this.JCollectionses;
+	}
+
+	public void setJCollectionses(Set JCollectionses) {
+		this.JCollectionses = JCollectionses;
+	}
+
+	public Set getJCommentses() {
+		return this.JCommentses;
+	}
+
+	public void setJCommentses(Set JCommentses) {
+		this.JCommentses = JCommentses;
+	}
+
+}

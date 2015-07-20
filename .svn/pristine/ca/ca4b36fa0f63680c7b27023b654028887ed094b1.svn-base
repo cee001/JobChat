@@ -1,0 +1,11 @@
+@CHARSET "UTF-8";
+
+a:link{ text-decoration : none ;color :#525252;font-size:15px;font-weight: 400;} 
+a:visited { text-decoration : none ;color : #525252 ;font-size:15px;} 
+a:hover { text-decoration : underline ;color :#CD0000 ;font-size:15px;font-weight: 600;} 
+a:active { text-decoration : none ;color :#525252 ;font-size:15px;font-weight: 500;}	
+
+
+
+
+    

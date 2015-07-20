@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping 
+	package="com.jobchat.entity">
+
+	<class name="Power" table="`powers`" lazy="true">
+		<comment>Users may bid for or sell auction items.</comment>
+		
+		<id name="pid" column="pid">
+			<generator class="native"/><!-- generator生成 主键列为自增列 则 native-->
+		</id>
+		<many-to-one name="roleInfo" column="rid" lazy="false"></many-to-one> 
+		<many-to-one name="menu" column="mid" lazy="false"></many-to-one> 
+		<!--property属性-->
+	
+	</class>
+	
+</hibernate-mapping>

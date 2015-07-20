@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="configLocation" value="classpath:hibernate.cfg.xml">
+		</property>
+
+    </bean>
+	<bean id="myHibTxManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<tx:advice id="txAdvice" transaction-manager="myHibTxManager">
+		<tx:attributes>
+			<!-- 对get/load/search开头的方法要求只读事务/SUPPORTS支持 -->
+			<tx:method name="get*" propagation="SUPPORTS" read-only="true" />
+			<tx:method name="load*" propagation="SUPPORTS" read-only="true" />
+			<tx:method name="search*" propagation="SUPPORTS" read-only="true" />
+			<!-- 对其它方法要求事务/required要求 命令/propagation传播，传输-->
+			<tx:method name="*" propagation="REQUIRED" />
+		</tx:attributes>
+	</tx:advice>
+	<aop:config>
+		<!--
+			对Service添加事务支持，因为前面配置的transactionManager 是专对Hibernate的事务管理器 。
+		-->
+		<aop:pointcut id="serviceMethods" expression="execution(* com.jobchat.service.*.*(..))" />
+		<!-- 织入 -->
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="serviceMethods" />
+	</aop:config>
+
+	<bean id="commonDao" class="com.jobchat.dao.CommonDAO">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="as" class="com.jobchat.service.AdminService">
+		<property name="cd" ref="commonDao"></property>
+	</bean>
+	<bean id="ps" class="com.jobchat.service.PowerServeice">
+	    <property name="cd" ref="commonDao"></property>
+	</bean>
+	<bean id="ms" class="com.jobchat.service.MenuService">
+		<property name="cd" ref="commonDao"></property>
+	</bean>	
+	<bean id="ris" class="com.jobchat.service.RoleinfoService">
+		<property name="cd" ref="commonDao"></property>
+	</bean>
+
+	<bean id="userinfoService" class="com.jobchat.service.UserinfoService">
+		<property name="cd" ref="commonDao"></property>
+	</bean>
+	<bean id="userService" class="com.jobchat.service.UserService">
+		<property name="cd" ref="commonDao"></property>
+	</bean>
+	<bean id="us" class="com.jobchat.service.UserService">
+		<property name="cd" ref="commonDao"></property>
+	</bean>
+	<bean id="usercompanyjobService" class="com.jobchat.service.UsercompanyjobService">
+		<property name="cd" ref="commonDao"></property>
+	</bean>	
+	<bean id="usereducationService" class="com.jobchat.service.UsereducationService">
+		<property name="cd" ref="commonDao"></property>
+	</bean>			
+	<bean id="userevaluationService" class="com.jobchat.service.UserevaluationService">
+		<property name="cd" ref="commonDao"></property>
+	</bean>			
+	<bean id="userforjobService" class="com.jobchat.service.UserforjobService">
+		<property name="cd" ref="commonDao"></property>
+	</bean>	
+	<bean id="userhobbyService" class="com.jobchat.service.UserhobbyService">
+		<property name="cd" ref="commonDao"></property>
+	</bean>	
+	<bean id="userpaperService" class="com.jobchat.service.UserpaperService">
+		<property name="cd" ref="commonDao"></property>
+	</bean>		
+	<bean id="userpayService" class="com.jobchat.service.UserpayService">
+		<property name="cd" ref="commonDao"></property>
+	</bean>		
+	<bean id="userskillService" class="com.jobchat.service.UserskillService">
+		<property name="cd" ref="commonDao"></property>
+	</bean>	
+	<bean id="userskilltypeService" class="com.jobchat.service.UserskilltypeService">
+		<property name="cd" ref="commonDao"></property>
+	</bean>
+	<bean id="uservaluesService" class="com.jobchat.service.UservaluesService">
+		<property name="cd" ref="commonDao"></property>
+	</bean>	
+	<bean id="userworkService" class="com.jobchat.service.UserworkService">
+		<property name="cd" ref="commonDao"></property>
+	</bean>	
+	<bean id="friendsService" class="com.jobchat.service.FriendsService">
+		<property name="cd" ref="commonDao"></property>
+	</bean>		
+	<bean id="compnaybusinessService" class="com.jobchat.service.CompnaybusinessService">
+		<property name="cd" ref="commonDao"></property>
+	</bean>		
+	<bean id="companywelfaretypeService" class="com.jobchat.service.CompanywelfaretypeService">
+		<property name="cd" ref="commonDao"></property>
+	</bean>			
+	<bean id="companywelfareService" class="com.jobchat.service.CompanywelfareService">
+		<property name="cd" ref="commonDao"></property>
+	</bean>	
+	<bean id="companyuserService" class="com.jobchat.service.CompanyuserService">
+		<property name="cd" ref="commonDao"></property>
+	</bean>		
+	<bean id="companylicensetypeService" class="com.jobchat.service.CompanylicensetypeService">
+		<property name="cd" ref="commonDao"></property>
+	</bean>		
+	<bean id="companylicenseService" class="com.jobchat.service.CompanylicenseService">
+		<property name="cd" ref="commonDao"></property>
+	</bean>		
+	<bean id="companyjobtypeService" class="com.jobchat.service.CompanyjobtypeService">
+		<property name="cd" ref="commonDao"></property>
+	</bean>		
+	<bean id="companyjobService" class="com.jobchat.service.CompanyjobService">
+		<property name="cd" ref="commonDao"></property>
+	</bean>		
+	<bean id="companyenvironmentService" class="com.jobchat.service.CompanyenvironmentService">
+		<property name="cd" ref="commonDao"></property>
+	</bean>	
+	<bean id="companycultureService" class="com.jobchat.service.CompanycultureService">
+		<property name="cd" ref="commonDao"></property>
+	</bean>	
+	<bean id="companyService" class="com.jobchat.service.CompanyService">
+		<property name="cd" ref="commonDao"></property>
+	</bean>							
+	<bean id="adminAction" class="com.jobchat.action.AdminAction">
+	    <property name="as" ref="as"></property>
+        <property name="ris" ref="ris"></property>
+	</bean>
+	
+	<bean id="menuAction" class="com.jobchat.action.MenuAction">
+		<property name="ps" ref="ps"></property>
+		<property name="ms" ref="ms"></property>
+	</bean>
+	<bean id="roleinfoAction" class="com.jobchat.action.RoleinfoAction">
+		<property name="ris" ref="ris"></property>
+  	</bean>
+	<bean id="userAction" class="com.jobchat.action.UserAction">
+		<property name="us" ref="us"></property>
+		<property name="userinfoService" ref="userinfoService"></property>		
+		<property name="usercompanyjobService" ref="usercompanyjobService"></property>				
+		<property name="usereducationService" ref="usereducationService"></property>	
+		<property name="userevaluationService" ref="userevaluationService"></property>
+		<property name="userforjobService" ref="userforjobService"></property>
+		<property name="userhobbyService" ref="userhobbyService"></property>
+		<property name="userpaperService" ref="userpaperService"></property>
+		<property name="userpayService" ref="userpayService"></property>
+		<property name="userskillService" ref="userskillService"></property>
+		<property name="userskilltypeService" ref="userskilltypeService"></property>
+		<property name="uservaluesService" ref="uservaluesService"></property>
+		<property name="userworkService" ref="userworkService"></property>		
+		<property name="compnaybusinessService" ref="compnaybusinessService"></property>			
+		<property name="companywelfaretypeService" ref="companywelfaretypeService"></property>		
+		<property name="companywelfareService" ref="companywelfareService"></property>	
+		<property name="companyuserService" ref="companyuserService"></property>	
+		<property name="companylicensetypeService" ref="companylicensetypeService"></property>	
+		<property name="companylicenseService" ref="companylicenseService"></property>		
+		<property name="companyjobtypeService" ref="companyjobtypeService"></property>	
+		<property name="companyjobService" ref="companyjobService"></property>	
+		<property name="companyenvironmentService" ref="companyenvironmentService"></property>
+		<property name="companycultureService" ref="companycultureService"></property>			
+		<property name="companyService" ref="companyService"></property>	
+  	</bean>
+	 	  	
+  	<bean id="MobileAction" class="com.jobchat.action.MobileAction">
+		<property name="userService" ref="userService"></property>
+		<property name="userinfoService" ref="userinfoService"></property>			
+		<property name="usercompanyjobService" ref="usercompanyjobService"></property>			
+		<property name="usereducationService" ref="usereducationService"></property>	
+		<property name="userevaluationService" ref="userevaluationService"></property>
+		<property name="userforjobService" ref="userforjobService"></property>
+		<property name="userhobbyService" ref="userhobbyService"></property>
+		<property name="userpaperService" ref="userpaperService"></property>
+		<property name="userpayService" ref="userpayService"></property>
+		<property name="userskillService" ref="userskillService"></property>
+		<property name="userskilltypeService" ref="userskilltypeService"></property>
+		<property name="uservaluesService" ref="uservaluesService"></property>
+		<property name="userworkService" ref="userworkService"></property>	
+		<property name="friendsService" ref="friendsService"></property>
+		<property name="compnaybusinessService" ref="compnaybusinessService"></property>			
+		<property name="companywelfaretypeService" ref="companywelfaretypeService"></property>		
+		<property name="companywelfareService" ref="companywelfareService"></property>	
+		<property name="companyuserService" ref="companyuserService"></property>	
+		<property name="companylicensetypeService" ref="companylicensetypeService"></property>	
+		<property name="companylicenseService" ref="companylicenseService"></property>		
+		<property name="companyjobtypeService" ref="companyjobtypeService"></property>	
+		<property name="companyjobService" ref="companyjobService"></property>	
+		<property name="companyenvironmentService" ref="companyenvironmentService"></property>
+		<property name="companycultureService" ref="companycultureService"></property>	
+		<property name="companyService" ref="companyService"></property>	
+  	</bean>
+  	
+
+</beans>
+
+
+

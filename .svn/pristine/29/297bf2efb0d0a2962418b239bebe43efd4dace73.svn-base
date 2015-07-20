@@ -1,0 +1,241 @@
+package com.jobchat.action;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+import javax.servlet.http.HttpServletRequest;
+import org.apache.struts2.ServletActionContext;
+import org.json.JSONException;
+import org.json.JSONObject;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
+import com.opensymphony.xwork2.ActionSupport;
+import com.jobchat.entity.JUser;
+import com.jobchat.entity.JUserinfo;
+import com.jobchat.service.UserService;
+import com.jobchat.service.UserinfoService;
+import com.jobchat.util.Md5;
+import com.jobchat.util.ResultUtils;
+import com.jobchat.util.TextUtility;
+
+
+@SuppressWarnings("serial")
+public class MobileAction extends ActionSupport{
+	private UserService  userService;
+	private UserinfoService  userinfoService;	
+	
+	//闁谎冾煼濡撅拷
+	public String mobile() throws UnsupportedEncodingException, JSONException{
+		HttpServletRequest request=ServletActionContext.getRequest();
+		request.setCharacterEncoding("UTF-8");
+		String para=request.getParameter("para");
+		JSONObject jb = new JSONObject(para);
+		int type =  jb.getInt("sendtype");
+		JSONObject data = jb.getJSONObject("data");
+		switch (type) {
+		case 10001:
+			//http://127.0.0.1:8080/SunHome/mobile!mobile.action?para={"sendtype":10001,"data":{"phone":"18858294600","password":"123456"}}
+			loginUser(data);
+			break;
+		case 10002:
+			updateUser(data);
+			break;
+		case 10003:
+			//http://127.0.0.1:8080/SunHome/mobile!mobile.action?para={"sendtype":10003,"data":{"userPhone":"18858294600","userPassword":"123456","userNikename":"sss"}}
+			addUser(data);
+			break;
+		case 10005:
+			// http://127.0.0.1:8080/SunHome/mobile!mobile.action?para={"sendtype":10005,"data":{"phone":"18858294600"}}
+			checkPhone(data);
+			break;	
+			
+		}
+
+		return null;
+	}
+	private void loginUser(JSONObject data) throws JSONException {
+		String loginId = data.getString("phone");
+		String loginPwd = data.getString("password");
+		JUser u = userService.checkLogin(loginId, loginPwd);
+		Map<String, Object> map = new HashMap<String, Object>();
+		Map<String, Object> map2 = new HashMap<String, Object>();
+		map2.put("user", u);
+		map.put("data", map2);
+		int status = 0;
+		map.put("ret", status);
+		map.put("msg", "");
+		try {
+			ResultUtils.toJson(ServletActionContext.getResponse(), map);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+//	private void getUser(JSONObject data) throws JSONException {
+//		int id = data.getInt("id");
+//		JUser u = userService.getJUserById(id);
+//		Map<String, Object> map = new HashMap<String, Object>();
+//		Map<String, Object> map2 = new HashMap<String, Object>();
+//		map2.put("user", u);
+//		map.put("data", map2);
+//		int status = 0;
+//		map.put("ret", status);
+//		map.put("msg", "");
+//		try {
+//			ResultUtils.toJson(ServletActionContext.getResponse(), map);
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//	}
+//		private void getUserinfo(JSONObject data) throws JSONException {
+//	        int uid=data.getInt("uid");
+//				SUserinfo uinfo = userinfoService.getSUserinfo(uid);
+//				Map<String, Object> map= new HashMap<String, Object>();
+//		    int status = 1;
+//				if(uinfo != null){
+//					Map<String, Object> map2= new HashMap<String, Object>();
+//					map.put("userinfo", uinfo);
+//					
+//					map.put("data", map2);
+//					status = 0;
+//				}else {
+//					status = 1;
+//					map.put("data", "");
+//				}
+//
+//				map.put("ret", status);
+//				map.put("msg", "");
+//				try {
+//					ResultUtils.toJson(ServletActionContext.getResponse(), map);
+//				} catch (IOException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				}
+//			}
+
+		private void updateUser(JSONObject data) {
+			GsonBuilder builder = new GsonBuilder();
+			// 婵炴垶鎼幏鐑藉级閻戝洦瀚归柨鐔告灮閹风兘濮�敍鍕挄闁跨喐鏋婚幏鐑芥晸閿熺捶Expose
+			// 濠电偛顦归崝蹇氼暰闁跨喐鏋婚幏鐑芥晸閻ｅ矉鎷烽柨鐔绘閳绘捇鏁撻敓锟�//
+			// builder.excludeFieldsWithoutExposeAnnotation();
+			Gson gson = builder.create();
+			String s = data.toString();
+			JUser u = gson.fromJson(s, new TypeToken<JUser>() {
+			}.getType());
+			JUser u2 = null;
+			boolean b =  false;
+			if(u.getUserPassword() != null){
+				u2 = userService.findTUserByPhone(u.getUserPhone());
+				Md5 md5 = new Md5(u.getUserPassword());
+		        md5.processString();
+		        String strEncrypto = md5.getStringDigest();	
+		        u2.setUserPassword(strEncrypto);
+				b = userService.updateSUser(u2);
+			}else{
+				u2 = userService.getSUserById(u.getUserId());
+				u.setUserPassword(u2.getUserPassword());
+				b = userService.updateSUser(u);
+			}
+			Map<String, Object> map = new HashMap<String, Object>();
+			int status = 1;
+			if (b) {
+				status = 0;
+			} else {
+				status = 1;
+			}
+			map.put("ret", status);
+			map.put("msg", "");
+			Map<String, Object> map2 = new HashMap<String, Object>();
+			map.put("data", map2);
+			try {
+				ResultUtils.toJson(ServletActionContext.getResponse(), map);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		private void addUser(JSONObject data) {
+			GsonBuilder builder = new GsonBuilder();
+			Gson gson = builder.create();
+			String s = data.toString();
+			JUser u = gson.fromJson(s, new TypeToken<JUser>() {
+			}.getType());
+
+			String ptime = TextUtility.formatDate(new Date());
+	        Md5 md5 = new Md5(u.getUserPassword());
+	        md5.processString();
+	        String strEncrypto = md5.getStringDigest();	
+	        u.setUserPassword(strEncrypto);
+			u.setUserTime(ptime);
+			u.setUserStatus(0);
+			if(u.getUserNikename() == null){
+				u.setUserNikename(u.getUserPhone());
+			}
+			u.setUserType((short)0);
+			boolean b = userService.addSUser(u);
+			JUserinfo uinfo = new JUserinfo();
+			uinfo.setJUser(u);
+			b = userinfoService.addUserinfo(uinfo);
+			Map<String, Object> map = new HashMap<String, Object>();
+			int status = 1;
+			if (b) {
+				status = 0;
+				map.put("msg", "");
+				Map<String, Object> map2 = new HashMap<String, Object>();
+				map.put("data", map2);
+			} else {
+				status = 1;
+				map.put("msg", "");
+			}
+			map.put("ret", status);
+			try {
+				ResultUtils.toJson(ServletActionContext.getResponse(), map);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+
+		private void checkPhone(JSONObject data) throws JSONException {
+
+			try {
+
+				int status = 0;
+				String loginId = data.getString("phone");
+				JUser u = userService.findTUserByPhone(loginId);
+				if (u == null) {
+					status = 1;
+				} else {
+					status = 0;
+				}
+				
+				Map<String, Object> map = new HashMap<String, Object>();
+				map.put("data", "");
+				map.put("ret", status);
+				map.put("msg", "");
+				ResultUtils.toJson(ServletActionContext.getResponse(), map);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		public UserService getUserService() {
+			return userService;
+		}
+		public void setUserService(UserService userService) {
+			this.userService = userService;
+		}
+		public UserinfoService getUserinfoService() {
+			return userinfoService;
+		}
+		public void setUserinfoService(UserinfoService userinfoService) {
+			this.userinfoService = userinfoService;
+		}	
+	
+}

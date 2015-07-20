@@ -1,0 +1,44 @@
+package com.jobchat.entity;
+
+import java.util.Set;
+
+public class Menu {
+	private int mid;
+	private String mtitle;
+	private String nurl;
+	private int parentId;
+	@SuppressWarnings("rawtypes")
+	private Set powers;
+	@SuppressWarnings("rawtypes")
+	public Set getPowers() {
+		return powers;
+	}
+	public void setPowers(@SuppressWarnings("rawtypes") Set powers) {
+		this.powers = powers;
+	}
+	public int getMid() {
+		return mid;
+	}
+	public void setMid(int mid) {
+		this.mid = mid;
+	}
+	public String getMtitle() {
+		return mtitle;
+	}
+	public void setMtitle(String mtitle) {
+		this.mtitle = mtitle;
+	}
+	public String getNurl() {
+		return nurl;
+	}
+	public void setNurl(String nurl) {
+		this.nurl = nurl;
+	}
+	public int getParentId() {
+		return parentId;
+	}
+	public void setParentId(int parentId) {
+		this.parentId = parentId;
+	}
+
+}

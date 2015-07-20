@@ -1,0 +1,77 @@
+package com.jobchat.entity;
+
+import java.util.HashSet;
+import java.util.Set;
+
+/**
+ * JUserpapertype entity. @author MyEclipse Persistence Tools
+ */
+
+public class JUserpapertype implements java.io.Serializable {
+
+	// Fields
+
+	private Integer papertypeId;
+	private String typename;
+	private boolean status;
+	private String ptime;
+	private Set JUserpapers = new HashSet(0);
+
+	// Constructors
+
+	/** default constructor */
+	public JUserpapertype() {
+	}
+
+	/** full constructor */
+	public JUserpapertype(String typename, boolean status, String ptime,
+			Set JUserpapers) {
+		this.typename = typename;
+		this.status = status;
+		this.ptime = ptime;
+		this.JUserpapers = JUserpapers;
+	}
+
+	// Property accessors
+
+	public Integer getPapertypeId() {
+		return this.papertypeId;
+	}
+
+	public void setPapertypeId(Integer papertypeId) {
+		this.papertypeId = papertypeId;
+	}
+
+	public String getTypename() {
+		return this.typename;
+	}
+
+	public void setTypename(String typename) {
+		this.typename = typename;
+	}
+
+	public boolean getStatus() {
+		return this.status;
+	}
+
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
+
+	public String getPtime() {
+		return this.ptime;
+	}
+
+	public void setPtime(String ptime) {
+		this.ptime = ptime;
+	}
+
+	public Set getJUserpapers() {
+		return this.JUserpapers;
+	}
+
+	public void setJUserpapers(Set JUserpapers) {
+		this.JUserpapers = JUserpapers;
+	}
+
+}

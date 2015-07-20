@@ -1,0 +1,184 @@
+package com.jobchat.entity;
+
+/**
+ * JUserpaper entity. @author MyEclipse Persistence Tools
+ */
+
+public class JUserpaper implements java.io.Serializable {
+
+	// Fields
+
+	private Integer userpaperId;
+	private JUserinfo JUserinfo;
+	private String idcard;
+	private String educationCertificate;
+	private String degreecertificate;
+	private String foreignlanguagegradecertificate;
+	private String itgradecertificate;
+	private String titlecertificate;
+	private String mountguard;
+	private String healthcertificate;
+	private String workvisa;
+	private String passport;
+	private String drivinglicense;
+	private String ptime;
+	private short status;
+
+	// Constructors
+
+	/** default constructor */
+	public JUserpaper() {
+	}
+
+	/** minimal constructor */
+	public JUserpaper(JUserinfo JUserinfo) {
+		this.JUserinfo = JUserinfo;
+	}
+
+	/** full constructor */
+	public JUserpaper(JUserinfo JUserinfo, String idcard,
+			String educationCertificate, String degreecertificate,
+			String foreignlanguagegradecertificate, String itgradecertificate,
+			String titlecertificate, String mountguard,
+			String healthcertificate, String workvisa, String passport,
+			String drivinglicense, String ptime, short status) {
+		this.JUserinfo = JUserinfo;
+		this.idcard = idcard;
+		this.educationCertificate = educationCertificate;
+		this.degreecertificate = degreecertificate;
+		this.foreignlanguagegradecertificate = foreignlanguagegradecertificate;
+		this.itgradecertificate = itgradecertificate;
+		this.titlecertificate = titlecertificate;
+		this.mountguard = mountguard;
+		this.healthcertificate = healthcertificate;
+		this.workvisa = workvisa;
+		this.passport = passport;
+		this.drivinglicense = drivinglicense;
+		this.ptime = ptime;
+		this.status = status;
+	}
+
+	// Property accessors
+
+	public Integer getUserpaperId() {
+		return this.userpaperId;
+	}
+
+	public void setUserpaperId(Integer userpaperId) {
+		this.userpaperId = userpaperId;
+	}
+
+	public JUserinfo getJUserinfo() {
+		return this.JUserinfo;
+	}
+
+	public void setJUserinfo(JUserinfo JUserinfo) {
+		this.JUserinfo = JUserinfo;
+	}
+
+	public String getIdcard() {
+		return this.idcard;
+	}
+
+	public void setIdcard(String idcard) {
+		this.idcard = idcard;
+	}
+
+	public String getEducationCertificate() {
+		return this.educationCertificate;
+	}
+
+	public void setEducationCertificate(String educationCertificate) {
+		this.educationCertificate = educationCertificate;
+	}
+
+	public String getDegreecertificate() {
+		return this.degreecertificate;
+	}
+
+	public void setDegreecertificate(String degreecertificate) {
+		this.degreecertificate = degreecertificate;
+	}
+
+	public String getForeignlanguagegradecertificate() {
+		return this.foreignlanguagegradecertificate;
+	}
+
+	public void setForeignlanguagegradecertificate(
+			String foreignlanguagegradecertificate) {
+		this.foreignlanguagegradecertificate = foreignlanguagegradecertificate;
+	}
+
+	public String getItgradecertificate() {
+		return this.itgradecertificate;
+	}
+
+	public void setItgradecertificate(String itgradecertificate) {
+		this.itgradecertificate = itgradecertificate;
+	}
+
+	public String getTitlecertificate() {
+		return this.titlecertificate;
+	}
+
+	public void setTitlecertificate(String titlecertificate) {
+		this.titlecertificate = titlecertificate;
+	}
+
+	public String getMountguard() {
+		return this.mountguard;
+	}
+
+	public void setMountguard(String mountguard) {
+		this.mountguard = mountguard;
+	}
+
+	public String getHealthcertificate() {
+		return this.healthcertificate;
+	}
+
+	public void setHealthcertificate(String healthcertificate) {
+		this.healthcertificate = healthcertificate;
+	}
+
+	public String getWorkvisa() {
+		return this.workvisa;
+	}
+
+	public void setWorkvisa(String workvisa) {
+		this.workvisa = workvisa;
+	}
+
+	public String getPassport() {
+		return this.passport;
+	}
+
+	public void setPassport(String passport) {
+		this.passport = passport;
+	}
+
+	public String getDrivinglicense() {
+		return this.drivinglicense;
+	}
+
+	public void setDrivinglicense(String drivinglicense) {
+		this.drivinglicense = drivinglicense;
+	}
+
+	public String getPtime() {
+		return this.ptime;
+	}
+
+	public void setPtime(String ptime) {
+		this.ptime = ptime;
+	}
+
+	public short getStatus() {
+		return this.status;
+	}
+
+	public void setStatus(short status) {
+		this.status = status;
+	}
+
+}

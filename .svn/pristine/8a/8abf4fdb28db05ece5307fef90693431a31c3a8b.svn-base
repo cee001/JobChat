@@ -1,0 +1,57 @@
+﻿<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+<session-factory name="foo">
+	<property name="hibernate.connection.provider_class">
+		org.hibernate.connection.ProxoolConnectionProvider
+	</property>
+	<property name="hibernate.proxool.xml">proxool.xml</property>
+	<property name="hibernate.proxool.pool_alias">mysql</property>
+
+	<property name="show_sql">false</property>
+	<property name="dialect">
+		org.hibernate.dialect.MySQLDialect
+	</property>
+	<!-- 方言 -->
+		<mapping resource="com/jobchat/entity/JCompanyjob.hbm.xml" />
+		<mapping resource="com/jobchat/entity/JCompanyculture.hbm.xml" />
+		<mapping resource="com/jobchat/entity/JCompanyjobtype.hbm.xml" />
+		<mapping resource="com/jobchat/entity/Menus.hbm.xml" />
+		<mapping resource="com/jobchat/entity/JUserpaper.hbm.xml" />
+		<mapping resource="com/jobchat/entity/JCompanylicense.hbm.xml" />
+		<mapping
+			resource="com/jobchat/entity/JCompanywelfaretype.hbm.xml" />
+		<mapping resource="com/jobchat/entity/JCompnaybusiness.hbm.xml" />
+		<mapping resource="com/jobchat/entity/JUsercompanyjob.hbm.xml" />
+		<mapping resource="com/jobchat/entity/JUserforjob.hbm.xml" />
+		<mapping resource="com/jobchat/entity/JUserhobby.hbm.xml" />
+		<mapping resource="com/jobchat/entity/JUserhobbytype.hbm.xml" />
+		<mapping
+			resource="com/jobchat/entity/JCompanyenvironment.hbm.xml" />
+		<mapping resource="com/jobchat/entity/Admin.hbm.xml" />
+		<mapping resource="com/jobchat/entity/JCompanywelfare.hbm.xml" />
+		<mapping resource="com/jobchat/entity/JCompanyuser.hbm.xml" />
+		<mapping resource="com/jobchat/entity/JUsereducation.hbm.xml" />
+		<mapping resource="com/jobchat/entity/JFriends.hbm.xml" />
+		<mapping resource="com/jobchat/entity/JCompany.hbm.xml" />
+		<mapping resource="com/jobchat/entity/JUservalues.hbm.xml" />
+		<mapping resource="com/jobchat/entity/Powers.hbm.xml" />
+		<mapping resource="com/jobchat/entity/JUserskilltype.hbm.xml" />
+		<mapping resource="com/jobchat/entity/JUserskill.hbm.xml" />
+		<mapping resource="com/jobchat/entity/JUser.hbm.xml" />
+		<mapping resource="com/jobchat/entity/JMessages.hbm.xml" />
+		<mapping resource="com/jobchat/entity/JUserwork.hbm.xml" />
+		<mapping resource="com/jobchat/entity/Roleinfo.hbm.xml" />
+		<mapping resource="com/jobchat/entity/JUserevaluation.hbm.xml" />
+		<mapping resource="com/jobchat/entity/JUserinfo.hbm.xml" />
+		<mapping resource="com/jobchat/entity/JComments.hbm.xml" />
+		<mapping
+			resource="com/jobchat/entity/JCompanylicensetype.hbm.xml" />
+		<mapping resource="com/jobchat/entity/JCollections.hbm.xml" />
+		<mapping resource="com/jobchat/entity/JUserpay.hbm.xml" />
+
+</session-factory>
+</hibernate-configuration>

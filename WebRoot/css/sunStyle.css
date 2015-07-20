@@ -1,0 +1,29 @@
+@charset "utf-8";
+/* CSS Document */
+
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td{margin:0;padding:0;}
+body{background:#ffffff;}
+img{ border:0;}
+ul,li{ list-style:none;}
+table{ border-collapse:collapse;} 
+
+a:link{text-decoration : none ;color :#212121;} 
+a:visited {text-decoration : none ;color : #525252 ;} 
+a:hover {text-decoration : underline ;color :#CD0000 ;} 
+a:active {text-decoration : none ;color :#212121 ;}	
+
+#indexdvp { margin:auto;border:0;width: 99%; height:99%;padding:0;} 
+
+#divp1  {visibility: visible;position:absolute;width:100%;height:40px;margin-top:0px;padding:0;text-align:center;}
+
+#divp2  {visibility: visible;position:absolute;width:100%; height:1200px;padding:0;margin-top:40px;background:#ffffff;}
+
+#divp2a {visibility: visible;position:absolute;width:15%;height:1200px;padding:0;margin-left:0px;margin-top:0px;float:left;background:#F0F8FF;}
+#divp2a_1 {height:100%;margin-left: 0px;float:left}
+#divp2a_2 {float: left;width:88%;height:100%;}
+#divp2a_3 {height:100%;float:right;}
+
+#divp2b  {visibility: visible;position:absolute;width:85%;height:1200px;padding:0;margin-left:15%;margin-top:0px;float:left;text-align: right;}
+#divp2b_1  {width:100%;height:40px;position:absolute;top:0px;left:0px;}
+#divp2b_2  {float: right;width:15%;font-size: 15px;font-family: 微软雅黑;color:#104E8B;margin-top: 10px;margin-right: 60px;}    
+#divp2b_3  {width:100%;height:1160px;position:absolute;margin-top:40px;left:0px;}  

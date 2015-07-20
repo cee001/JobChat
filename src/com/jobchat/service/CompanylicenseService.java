@@ -1,0 +1,82 @@
+package com.jobchat.service;
+
+import java.util.ArrayList;
+import com.jobchat.dao.CommonDAO;
+import com.jobchat.entity.JCompanylicense;
+
+public class CompanylicenseService {
+	private CommonDAO cd;
+
+	public CommonDAO getCd() {
+		return cd;
+	}
+
+	public void setCd(CommonDAO cd) {
+		this.cd = cd;
+	}
+
+	//添加
+	public boolean addJCompanylicense(JCompanylicense u){
+		try{
+			cd.addObject(u);
+			return true;
+			
+		}catch(Exception ex){
+			return false;
+		}
+		
+	}
+	   //修改
+    public boolean updateJCompanylicense(JCompanylicense u){
+        try{
+        	cd.updateObject(u);
+        	return true;
+        }catch(Exception ex){
+        	return false;
+        }
+    }
+    
+    //删除
+    public boolean delJCompanylicense(JCompanylicense u){
+        try{
+        	cd.delObject(u);
+        	return true;
+        }catch(Exception ex){
+        	return false;
+        }    
+
+    }
+    
+    //通过id单个查询
+    public JCompanylicense getJCompanylicenseById(int id){
+
+    	return (JCompanylicense)cd.getObject(JCompanylicense.class, id);
+    }      
+    
+	//获取全部
+	@SuppressWarnings("unchecked")
+	public ArrayList<JCompanylicense> getAllCinfo(int cid){
+		String hql="from JCompanylicense where company_id = '"+cid+"' and status = '0'";
+		return (ArrayList<JCompanylicense>)cd.getObjects(hql);
+	}
+	
+	//获取全部用户数量
+	public int getCounts(){
+		String hql="from JCompanylicense";
+		return cd.getObjects(hql).size();
+		
+	}
+	
+	//分页获取数量	
+	public int getcount(){
+		String hql="select count(*) from JCompanylicense ";
+		return Integer.parseInt(cd.getObjects(hql).get(0).toString());
+	}
+	//分页获取
+	@SuppressWarnings("unchecked")
+	public ArrayList<JCompanylicense> getSUserByPageNum(int pageNum,int pageSize){
+		String hql="from JCompanylicense";
+		return (ArrayList<JCompanylicense>)cd.getObjectByPageNum(hql, pageNum, pageSize);
+	}
+	
+}

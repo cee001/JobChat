@@ -1,0 +1,121 @@
+package com.jobchat.service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.jobchat.dao.CommonDAO;
+import com.jobchat.entity.JUser;
+import com.jobchat.util.Md5;
+
+
+public class UserService {
+	private CommonDAO cd;
+
+	public CommonDAO getCd() {
+		return cd;
+	}
+
+	public void setCd(CommonDAO cd) {
+		this.cd = cd;
+	}
+	
+	//登陆
+	public JUser checkLogin(String loginId,String loginPwd){
+		JUser u=null;
+
+        Md5 md5 = new Md5(loginPwd);
+        md5.processString();
+        String strEncrypto = md5.getStringDigest();		
+		String hql="from JUser where user_phone='"+loginId+"'and user_password='"+strEncrypto+"'";
+		@SuppressWarnings("rawtypes")
+		List ls=cd.getObjects(hql);
+		if(ls!=null&&ls.size()>0){
+			System.out.println("ok");
+			u=(JUser)ls.get(0);
+		}else{
+			System.out.println("no```");
+		}
+		return u;				
+	}
+	
+	//添加
+	public boolean addSUser(JUser u){
+		try{
+			cd.addObject(u);
+			return true;
+			
+		}catch(Exception ex){
+			return false;
+		}
+		
+	}
+	   //修改
+    public boolean updateSUser(JUser u){
+        try{
+        	cd.updateObject(u);
+        	return true;
+        }catch(Exception ex){
+        	return false;
+        }
+    }
+    
+    //删除
+    public boolean delSUser(JUser u){
+        try{
+        	cd.delObject(u);
+        	return true;
+        }catch(Exception ex){
+        	return false;
+        }    
+
+    }
+    
+    //通过id单个查询
+    public JUser getSUserById(int id){
+
+    	return (JUser)cd.getObject(JUser.class, id);
+    }
+    
+	//通过电话单个获取用户
+	public JUser findTUserByPhone(String phone){
+		JUser u=null;
+		String hql="from SUser where user_phone='"+phone+"'";
+		@SuppressWarnings("rawtypes")
+		List ls=cd.getObjects(hql);
+		if(ls!=null&&ls.size()>0){
+			System.out.println("ok");
+			u=(JUser)ls.get(0);
+		}else{
+			System.out.println("no``");
+		}
+		return u;
+		
+	}    
+    
+	//获取全部
+	@SuppressWarnings("unchecked")
+	public ArrayList<JUser> getSUsers(){
+		String hql="from JUser";
+		return (ArrayList<JUser>)cd.getObjects(hql);
+	}
+	
+	//获取全部用户数量
+	public int getCounts(){
+		String hql="from JUser";
+		return cd.getObjects(hql).size();
+		
+	}
+	
+	//分页获取数量	
+	public int getcount(){
+		String hql="select count(*) from JUser ";
+		return Integer.parseInt(cd.getObjects(hql).get(0).toString());
+	}
+	//分页获取
+	@SuppressWarnings("unchecked")
+	public ArrayList<JUser> getSUserByPageNum(int pageNum,int pageSize){
+		String hql="from JUser";
+		return (ArrayList<JUser>)cd.getObjectByPageNum(hql, pageNum, pageSize);
+	}
+	
+}

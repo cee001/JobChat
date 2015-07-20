@@ -1,0 +1,40 @@
+package com.jobchat.entity;
+
+import java.util.Set;
+
+public class RoleInfo {
+	private int roleId;
+	private String roleName;
+	@SuppressWarnings("rawtypes")
+	private Set admin;
+	@SuppressWarnings("rawtypes")
+	private Set powers;
+	
+	@SuppressWarnings("rawtypes")
+	public Set getPowers() {
+		return powers;
+	}
+	public void setPowers(@SuppressWarnings("rawtypes") Set powers) {
+		this.powers = powers;
+	}
+	@SuppressWarnings("rawtypes")
+	public Set getAdmin() {
+		return admin;
+	}
+	public void setAdmin(@SuppressWarnings("rawtypes") Set admin) {
+		this.admin = admin;
+	}
+	public int getRoleId() {
+		return roleId;
+	}
+	public void setRoleId(int roleId) {
+		this.roleId = roleId;
+	}
+	public String getRoleName() {
+		return roleName;
+	}
+	public void setRoleName(String roleName) {
+		this.roleName = roleName;
+	}
+
+}

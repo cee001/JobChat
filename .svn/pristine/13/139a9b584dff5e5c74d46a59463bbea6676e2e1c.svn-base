@@ -1,0 +1,40 @@
+@charset "utf-8";
+/* CSS Document */
+
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td{margin:0;padding:0;}
+body{text-align:center;background:#ffffff;}
+img{ border:0;}
+ul,li{ list-style:none;}
+table{ border-collapse:collapse;}
+
+#indexdvp { margin:auto;border:0;width: 100%; height:100%;padding:0;background:#ffffff;text-align:center;} 
+#divpp1  {visibility: visible;position:absolute;width:50%;height:26%;padding:0;left:25%;top:3%;}
+#divpp2  {visibility: visible;position:absolute;width:55%;height:35%;margin-top:12%;padding:0;left:25%;}
+#divpp3  {visibility: visible;position:absolute;width:45%;height:35%;padding:0;margin-left:25%;margin-top:25%;}
+#divpp4  {visibility: visible;position:absolute;width:50%;height:26%;padding:0;left:10%;top:3%;}
+#divpp5  {visibility: visible;position:absolute;width:100%;height:60%;margin-top:7%;padding:0;left:0;}
+#divpp5-1  {visibility: visible;position:absolute;margin-top: 2px;margin-left:7px;float: left;}
+#divpp5-2  {margin-top: 0px;margin-left:2px;float: left;border: 1px solid;border-color:#36648B;text-align: right;width:98%;}
+#divpp5-3 {color:#36648B;line-height: 18px;width:98%;margin-top:15px;text-align: right;font-size: 15px;}
+#ullog{text-align:left;float:left;width:45%;list-style-type: none;padding: 0px}
+#ullog li{margin-left:0px;float:left;text-align:left;} 
+#ullog3{width:20%;height:80%;margin-top:2%;margin-left: 70%;background: #ffffff;}
+  
+#ullog4{text-align:center;float:left;width:26%;height:92%;margin-top:1%;margin-left: 70%;list-style-type: none;
+        padding: 0px;background: #ffffff}                
+#ullog4 li{float: left;text-align:center;margin-top:10px;margin-left:5%;padding: 0px;width:90%;height:30px;font-size:14px;} 
+
+#divpp6  {width:100%;height:20%;}   
+#divpp6  ul{width:100%;text-align: center;list-style-type: none;} 
+#divpp6  ul li{visibility: visible;position:absolute;}  
+#divpp7  {width:50%;height:65%;margin-top: -1%;margin-left: 25%;background: #ffffff;border: 1px solid;border-color:#ffffff;}    
+#divpp7  ul{width:100%;text-align: center;list-style-type: none;} 
+#divpp7  ul li{font-size:17px;color:#303030;margin-top:30px;width:100%;height:25px;}    
+#divpp7-1 {float:left;text-align:right;margin-top: 2px;width:80px;margin-left: 20%;}  
+#divpp7-2 {margin-top: 0px;margin-left:3%;float: left;border: 1px solid;border-color:#36648B;text-align: right;width:38%;} 
+#divpp7-3{margin-top: 0px;margin-left:3%;float: left;border: 1px solid;border-color:#36648B;text-align: right;width:18%;} 
+
+
+
+
+

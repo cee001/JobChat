@@ -1,0 +1,9 @@
+@charset "utf-8";
+/* CSS Document */
+p{
+	background-color:red;
+	border-style:dashed;
+}
+td{
+	border-style:dashed;
+}

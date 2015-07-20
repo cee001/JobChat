@@ -1,0 +1,271 @@
+package com.jobchat.entity;
+
+import java.util.HashSet;
+import java.util.Set;
+
+/**
+ * JCompanyjob entity. @author MyEclipse Persistence Tools
+ */
+
+public class JCompanyjob implements java.io.Serializable {
+
+	// Fields
+
+	private Integer companyjobId;
+	private JCompanyjobtype JCompanyjobtype;
+	private JCompany JCompany;
+	private String name;
+	private Integer jobrank;
+	private short fulltimeinternship;
+	private String reportobjects;
+	private String departments;
+	private String number;
+	private boolean sex;
+	private String age;
+	private String workage;
+	private String jobresponsibilities;
+	private String workingcondition;
+	private String workadress;
+	private String salaryrange;
+	private String equity;
+	private String commission;
+	private String ptime;
+	private short status;
+	private String la;
+	private String lo;
+	private Set JUsercompanyjobs = new HashSet(0);
+
+	// Constructors
+
+	/** default constructor */
+	public JCompanyjob() {
+	}
+
+	/** minimal constructor */
+	public JCompanyjob(JCompanyjobtype JCompanyjobtype, JCompany JCompany,
+			String ptime) {
+		this.JCompanyjobtype = JCompanyjobtype;
+		this.JCompany = JCompany;
+		this.ptime = ptime;
+	}
+
+	/** full constructor */
+	public JCompanyjob(JCompanyjobtype JCompanyjobtype, JCompany JCompany,
+			String name, Integer jobrank, short fulltimeinternship,
+			String reportobjects, String departments, String number,
+			boolean sex, String age, String workage,
+			String jobresponsibilities, String workingcondition,
+			String workadress, String salaryrange, String equity,
+			String commission, String ptime, short status, String la,
+			String lo, Set JUsercompanyjobs) {
+		this.JCompanyjobtype = JCompanyjobtype;
+		this.JCompany = JCompany;
+		this.name = name;
+		this.jobrank = jobrank;
+		this.fulltimeinternship = fulltimeinternship;
+		this.reportobjects = reportobjects;
+		this.departments = departments;
+		this.number = number;
+		this.sex = sex;
+		this.age = age;
+		this.workage = workage;
+		this.jobresponsibilities = jobresponsibilities;
+		this.workingcondition = workingcondition;
+		this.workadress = workadress;
+		this.salaryrange = salaryrange;
+		this.equity = equity;
+		this.commission = commission;
+		this.ptime = ptime;
+		this.status = status;
+		this.la = la;
+		this.lo = lo;
+		this.JUsercompanyjobs = JUsercompanyjobs;
+	}
+
+	// Property accessors
+
+	public Integer getCompanyjobId() {
+		return this.companyjobId;
+	}
+
+	public void setCompanyjobId(Integer companyjobId) {
+		this.companyjobId = companyjobId;
+	}
+
+	public JCompanyjobtype getJCompanyjobtype() {
+		return this.JCompanyjobtype;
+	}
+
+	public void setJCompanyjobtype(JCompanyjobtype JCompanyjobtype) {
+		this.JCompanyjobtype = JCompanyjobtype;
+	}
+
+	public JCompany getJCompany() {
+		return this.JCompany;
+	}
+
+	public void setJCompany(JCompany JCompany) {
+		this.JCompany = JCompany;
+	}
+
+	public String getName() {
+		return this.name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Integer getJobrank() {
+		return this.jobrank;
+	}
+
+	public void setJobrank(Integer jobrank) {
+		this.jobrank = jobrank;
+	}
+
+	public short getFulltimeinternship() {
+		return this.fulltimeinternship;
+	}
+
+	public void setFulltimeinternship(short fulltimeinternship) {
+		this.fulltimeinternship = fulltimeinternship;
+	}
+
+	public String getReportobjects() {
+		return this.reportobjects;
+	}
+
+	public void setReportobjects(String reportobjects) {
+		this.reportobjects = reportobjects;
+	}
+
+	public String getDepartments() {
+		return this.departments;
+	}
+
+	public void setDepartments(String departments) {
+		this.departments = departments;
+	}
+
+	public String getNumber() {
+		return this.number;
+	}
+
+	public void setNumber(String number) {
+		this.number = number;
+	}
+
+	public boolean getSex() {
+		return this.sex;
+	}
+
+	public void setSex(boolean sex) {
+		this.sex = sex;
+	}
+
+	public String getAge() {
+		return this.age;
+	}
+
+	public void setAge(String age) {
+		this.age = age;
+	}
+
+	public String getWorkage() {
+		return this.workage;
+	}
+
+	public void setWorkage(String workage) {
+		this.workage = workage;
+	}
+
+	public String getJobresponsibilities() {
+		return this.jobresponsibilities;
+	}
+
+	public void setJobresponsibilities(String jobresponsibilities) {
+		this.jobresponsibilities = jobresponsibilities;
+	}
+
+	public String getWorkingcondition() {
+		return this.workingcondition;
+	}
+
+	public void setWorkingcondition(String workingcondition) {
+		this.workingcondition = workingcondition;
+	}
+
+	public String getWorkadress() {
+		return this.workadress;
+	}
+
+	public void setWorkadress(String workadress) {
+		this.workadress = workadress;
+	}
+
+	public String getSalaryrange() {
+		return this.salaryrange;
+	}
+
+	public void setSalaryrange(String salaryrange) {
+		this.salaryrange = salaryrange;
+	}
+
+	public String getEquity() {
+		return this.equity;
+	}
+
+	public void setEquity(String equity) {
+		this.equity = equity;
+	}
+
+	public String getCommission() {
+		return this.commission;
+	}
+
+	public void setCommission(String commission) {
+		this.commission = commission;
+	}
+
+	public String getPtime() {
+		return this.ptime;
+	}
+
+	public void setPtime(String ptime) {
+		this.ptime = ptime;
+	}
+
+	public short getStatus() {
+		return this.status;
+	}
+
+	public void setStatus(short status) {
+		this.status = status;
+	}
+
+	public String getLa() {
+		return this.la;
+	}
+
+	public void setLa(String la) {
+		this.la = la;
+	}
+
+	public String getLo() {
+		return this.lo;
+	}
+
+	public void setLo(String lo) {
+		this.lo = lo;
+	}
+
+	public Set getJUsercompanyjobs() {
+		return this.JUsercompanyjobs;
+	}
+
+	public void setJUsercompanyjobs(Set JUsercompanyjobs) {
+		this.JUsercompanyjobs = JUsercompanyjobs;
+	}
+
+}

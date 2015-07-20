@@ -1,0 +1,143 @@
+package com.jobchat.entity;
+
+import com.google.gson.annotations.Expose;
+
+
+/**
+ * SUser entity. @author MyEclipse Persistence Tools
+ */
+
+@SuppressWarnings("serial")
+public class JUser implements java.io.Serializable {
+
+	// Fields
+	@Expose 
+	private Integer userId;
+	@Expose 
+	private String userPhone;
+	private String userPassword;
+	@Expose 
+	private String userNikename;
+	@Expose 
+	private String userImgface;
+	@Expose 
+	private String userTime;
+	private Integer userStatus;
+	private Short userType;
+	private String userRefreshtime;
+	private Integer userOutid;
+
+
+	// Constructors
+
+	/** default constructor */
+	public JUser() {
+	}
+	/** minimal constructor */
+	public JUser(String userPhone, String userPassword, String userTime,
+			Integer userStatus, Short userType,String userRefreshtime,Integer userOutid) {
+		this.userPhone = userPhone;
+		this.userPassword = userPassword;
+		this.userTime = userTime;
+		this.userStatus = userStatus;
+		this.userType = userType;
+		this.userRefreshtime = userRefreshtime;
+		this.userOutid = userOutid;
+	}
+
+	/** full constructor */
+	public JUser(String userPhone, String userPassword, String userNikename,
+			String userTime, Integer userStatus, String userImgface,
+			Short userType,String userRefreshtime,Integer userOutid) {
+		this.userPhone = userPhone;
+		this.userPassword = userPassword;
+		this.userNikename = userNikename;
+		this.userTime = userTime;
+		this.userStatus = userStatus;
+		this.userImgface = userImgface;
+		this.userType = userType;
+		this.userRefreshtime = userRefreshtime;
+		this.userOutid = userOutid;
+	}
+
+	// Property accessors
+
+	public Integer getUserId() {
+		return this.userId;
+	}
+
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
+
+	public String getUserPhone() {
+		return this.userPhone;
+	}
+
+	public void setUserPhone(String userPhone) {
+		this.userPhone = userPhone;
+	}
+
+	public String getUserPassword() {
+		return this.userPassword;
+	}
+
+	public void setUserPassword(String userPassword) {
+		this.userPassword = userPassword;
+	}
+
+	public String getUserNikename() {
+		return this.userNikename;
+	}
+
+	public void setUserNikename(String userNikename) {
+		this.userNikename = userNikename;
+	}
+
+	public String getUserTime() {
+		return this.userTime;
+	}
+
+	public void setUserTime(String userTime) {
+		this.userTime = userTime;
+	}
+
+	public Integer getUserStatus() {
+		return this.userStatus;
+	}
+
+	public void setUserStatus(Integer userStatus) {
+		this.userStatus = userStatus;
+	}
+
+	public String getUserImgface() {
+		return this.userImgface;
+	}
+
+	public void setUserImgface(String userImgface) {
+		this.userImgface = userImgface;
+	}
+
+	public Short getUserType() {
+		return this.userType;
+	}
+
+	public void setUserType(Short userType) {
+		this.userType = userType;
+	}
+
+	public String getUserRefreshtime() {
+		return userRefreshtime;
+	}
+	public void setUserRefreshtime(String userRefreshtime) {
+		this.userRefreshtime = userRefreshtime;
+	}
+	public Integer getUserOutid() {
+		return userOutid;
+	}
+	public void setUserOutid(Integer userOutid) {
+		this.userOutid = userOutid;
+	}
+
+
+}

@@ -1,0 +1,79 @@
+package com.jobchat.entity;
+
+import java.util.HashSet;
+import java.util.Set;
+
+/**
+ * Menus entity. @author MyEclipse Persistence Tools
+ */
+
+@SuppressWarnings("serial")
+public class Menus implements java.io.Serializable {
+
+	// Fields
+
+	private Integer mid;
+	private String mtitle;
+	private String nurl;
+	private Integer parentId;
+	@SuppressWarnings("rawtypes")
+	private Set powerses = new HashSet(0);
+
+	// Constructors
+
+	/** default constructor */
+	public Menus() {
+	}
+
+	/** full constructor */
+	public Menus(String mtitle, String nurl, Integer parentId, @SuppressWarnings("rawtypes") Set powerses) {
+		this.mtitle = mtitle;
+		this.nurl = nurl;
+		this.parentId = parentId;
+		this.powerses = powerses;
+	}
+
+	// Property accessors
+
+	public Integer getMid() {
+		return this.mid;
+	}
+
+	public void setMid(Integer mid) {
+		this.mid = mid;
+	}
+
+	public String getMtitle() {
+		return this.mtitle;
+	}
+
+	public void setMtitle(String mtitle) {
+		this.mtitle = mtitle;
+	}
+
+	public String getNurl() {
+		return this.nurl;
+	}
+
+	public void setNurl(String nurl) {
+		this.nurl = nurl;
+	}
+
+	public Integer getParentId() {
+		return this.parentId;
+	}
+
+	public void setParentId(Integer parentId) {
+		this.parentId = parentId;
+	}
+
+	@SuppressWarnings("rawtypes")
+	public Set getPowerses() {
+		return this.powerses;
+	}
+
+	public void setPowerses(@SuppressWarnings("rawtypes") Set powerses) {
+		this.powerses = powerses;
+	}
+
+}

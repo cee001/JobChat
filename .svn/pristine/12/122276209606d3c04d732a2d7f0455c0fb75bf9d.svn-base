@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
+    <package name="default" namespace="/" extends="struts-default" >
+        <default-action-ref name="err"></default-action-ref>
+        <action name="err">
+        	<result>error.jsp</result>
+        </action>
+        <action name="admin" class="adminAction">
+
+                <result name="success">jcmail.jsp</result>
+                <result name="fail">jclogin.jsp</result>
+                <result name="showList">listadmin.jsp</result>
+                <result name="suc">jcmail.jsp</result>
+                <result name="fai">jclogin.jsp</result> 
+                <result name="showUpdate">showupadmin.jsp</result>
+                <result name="showDetail">udetail.jsp</result>     
+        </action>
+        <action name="men" class="menuAction">
+                <result name="leftree">/leftree.jsp</result>
+                <result name="showmenu">/head.jsp</result>
+                <result name="showmenu1">/hxtgl.jsp</result>
+                <result name="showmenu2">/hzxzx.jsp</result>
+                <result name="showmenu3">/hplgl.jsp</result>
+                <result name="showmenu4">/hhyxx.jsp</result>     
+                <result name="showmenu5">/hwjzl.jsp</result>                                                            
+                <result name="showlist">/listmenu.jsp</result>
+                <result name="showlist2">/listmenu2.jsp</result>            
+                <result name="sr" type="redirect">/role!showlist.action</result>          
+        </action> 
+        <action name="role" class="roleinfoAction">
+
+                <result name="fail">addrole.jsp</result>
+                <result name="showlist">/listrole.jsp</result>             
+         </action>
+         <action name="ur" class="userAction">
+                <result name="success">sunhome.html</result>
+                <result name="fail">qlogin.jsp</result>
+                <result name="showlist">listuser.jsp</result>
+                <result name="showUpdate">qUpuinfo.jsp</result>              
+                <result name="showDetail">udetail.jsp</result>	
+                <result name="showDetail1">qudetail.jsp</result>
+                <result name="detailcompany">detailcompany.jsp</result>
+                <result name="showUpdate2">qUpupassword.jsp</result>                
+                <result name="loginout">/sunhome.html</result>
+                <result name="listcompany">listcompany.jsp</result>
+                <result name="listjob">listjob.jsp</result>
+                <result name="detailjob">detailjob.jsp</result>
+         </action>  
+  
+  
+         <action name="mobile" class="MobileAction" >
+ 
+         </action>
+                                   
+               
+    </package>
+
+    <!-- Add packages here -->
+
+</struts>

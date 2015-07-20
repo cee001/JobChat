@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>阳光社区</title>	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=GBK">
+ 	<script type="text/javascript" src="js/jquery.js"></script>   
+	<link href="css/linkStyle.css" rel="stylesheet" type="text/css" />
+	<link href="css/sunmallStyle.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">
+  
+            $(function(){   
+                           
+                 $("#divp1").load("qhead.jsp?RandStr="+Math.random()); 	  
+                 $("#divp2").load("qsearch_mall.jsp");                 	  
+                 $("#divp3").load("qdh_home.jsp"); 
+                 $("#divp6a").load("qh_navigation.jsp"); 
+                 $("#d6b_21").load("qrelease_h.jsp"); 	  
+                 $("#d6b_22").load("msg!showlist.action"); 
+ 
+            	 /*$.ajax({ 
+            	     async:false,   			          	       		
+				     type:"get",
+				     url:"qlistekNondestructive2.jsp?RandStr="+Math.random(), 
+				     success:function(d){				                 
+				            $("#divp2f").html(d);       
+				     }              			
+				   });
+				 $.ajax({ 
+            	     async:false,   			          	       		
+				     type:"get",
+				     url:"qlistekPhycal2.jsp?RandStr="+Math.random(), 
+				     success:function(d){				                 
+				            $("#divp2g").html(d);       
+				     }              			
+				   });
+				 $.ajax({ 
+            	     async:false,   			          	       		
+				     type:"get",
+				     url:"qlistekpressure2.jsp?RandStr="+Math.random(), 
+				     success:function(d){				                 
+				            $("#divp2h").html(d);       
+				     }              			
+				   }); 
+				 $.ajax({ 
+            	     async:false,   			          	       		
+				     type:"get",
+				     url:"qlistekPole2.jsp?RandStr="+Math.random(), 
+				     success:function(d){				                 
+				            $("#divp2i").html(d);       
+				     }              			
+				   });
+				 $.ajax({ 
+            	     async:false,   			          	       		
+				     type:"get",
+				     url:"qlistekmeasure2.jsp?RandStr="+Math.random(), 
+				     success:function(d){				                 
+				            $("#divp2j").html(d);       
+				     }              			
+				   });
+				 $.ajax({ 
+            	     async:false,   			          	       		
+				     type:"get",
+				     url:"qlistekspecial2.jsp?RandStr="+Math.random(), 
+				     success:function(d){				                 
+				            $("#divp2k").html(d);       
+				     }              			
+				   });         
+				                       
+            	 $.ajax({ 			          	       		
+				     type:"get",
+				     url:"kong.jsp", 
+				     success:function(d){
+				                 
+				            $("#divdh").html(d);
+				     		var did=document.getElementById("d1").value;  	
+							document.getElementById(did).style.background="url(images/TJT/96.png)";
+							document.getElementById(did).style.color="red";	       
+				     }              
+			
+				   });*/
+		   
+	  });
+	        function openhref(src){
+   
+       		 $.ajax({ 
+			     async:false,    	       		
+				     type:"get",
+				     url:src+"&RandStr="+Math.random(), 
+				     success:function(d){
+				                 
+				                 $("#divp2c2a").html(d);  
+	                              
+	                             }
+	                            
+	                        
+			
+				});	
+			}	      
+      
+  
+    </script>
+  </head>
+  
+  <body>
+    <input id="doutid" type="hidden" value="2">
+    <div id="indexdiv"> 
+       <div id="divp1">
+       </div>
+       <div id="divp2">       
+                                 搜索
+       </div> 
+       <div id="divp3">  
+                                 导航                                
+       </div>                                   
+       <div id="divp6" onmouseover="rechangex1()">
+           <div class="divp6a" id="divp6a"> 
+                                             商品分类                              
+           </div> 
+           <div class="divp6b" id="divp5b">  
+             <div class="d6b_1"  onclick="hidingpic()">左</div>
+             <div class="d6b_2">
+                <div id="d6b_21"><iframe style="width:100%;height:1200px;margin-top:0px;" src="qrelease_h.jsp"></iframe></div>
+                <div id="d6b_22"></div>              
+             </div> 
+             <div class="d6b_3"  onclick="hidingpic()">右</div>                                  
+           </div> 
+
+       </div>    
+
+    </div>
+  </body>
+</html>

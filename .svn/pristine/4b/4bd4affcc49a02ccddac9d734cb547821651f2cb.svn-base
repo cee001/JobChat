@@ -1,0 +1,74 @@
+package com.jobchat.entity;
+
+/**
+ * JFriends entity. @author MyEclipse Persistence Tools
+ */
+
+public class JFriends implements java.io.Serializable {
+
+	// Fields
+
+	private Integer friendsId;
+	private JUser JUserByUserId;
+	private JUser JUserByTouserId;
+	private String ptime;
+	private short status;
+
+	// Constructors
+
+	/** default constructor */
+	public JFriends() {
+	}
+
+	/** full constructor */
+	public JFriends(JUser JUserByUserId, JUser JUserByTouserId, String ptime,
+			short status) {
+		this.JUserByUserId = JUserByUserId;
+		this.JUserByTouserId = JUserByTouserId;
+		this.ptime = ptime;
+		this.status = status;
+	}
+
+	// Property accessors
+
+	public Integer getFriendsId() {
+		return this.friendsId;
+	}
+
+	public void setFriendsId(Integer friendsId) {
+		this.friendsId = friendsId;
+	}
+
+	public JUser getJUserByUserId() {
+		return this.JUserByUserId;
+	}
+
+	public void setJUserByUserId(JUser JUserByUserId) {
+		this.JUserByUserId = JUserByUserId;
+	}
+
+	public JUser getJUserByTouserId() {
+		return this.JUserByTouserId;
+	}
+
+	public void setJUserByTouserId(JUser JUserByTouserId) {
+		this.JUserByTouserId = JUserByTouserId;
+	}
+
+	public String getPtime() {
+		return this.ptime;
+	}
+
+	public void setPtime(String ptime) {
+		this.ptime = ptime;
+	}
+
+	public short getStatus() {
+		return this.status;
+	}
+
+	public void setStatus(short status) {
+		this.status = status;
+	}
+
+}

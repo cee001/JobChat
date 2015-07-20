@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>阳光社区</title>	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=GBK">
+ 	<script type="text/javascript" src="js/jquery.js"></script>   
+	<link href="css/linkStyle.css" rel="stylesheet" type="text/css" />
+	<link href="css/sunmallStyle.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">
+  
+            $(function(){   
+                           
+                 $("#divp1").load("qhead.jsp?RandStr="+Math.random()); 	  
+                 $("#divp2").load("qsearch_mall.jsp");                 	  
+                 $("#divp3").load("qdh_mall.jsp"); 	  
+                 $("#dl2").load("qmallnavigation.jsp"); 
+                 $("#divp4_1").load("qm_lunbo.html");  
+                 $("#divp5a_1").load("qm_recommend.jsp");       
+                 $("#divp5b").load("qm_hot.jsp"); 
+                 $("#divp5c_1").load("qm_commodity.jsp");  
+            	 /*$.ajax({ 
+            	     async:false,   			          	       		
+				     type:"get",
+				     url:"qlistekNondestructive2.jsp?RandStr="+Math.random(), 
+				     success:function(d){				                 
+				            $("#divp2f").html(d);       
+				     }              			
+				   });
+				 $.ajax({ 
+            	     async:false,   			          	       		
+				     type:"get",
+				     url:"qlistekPhycal2.jsp?RandStr="+Math.random(), 
+				     success:function(d){				                 
+				            $("#divp2g").html(d);       
+				     }              			
+				   });
+				 $.ajax({ 
+            	     async:false,   			          	       		
+				     type:"get",
+				     url:"qlistekpressure2.jsp?RandStr="+Math.random(), 
+				     success:function(d){				                 
+				            $("#divp2h").html(d);       
+				     }              			
+				   }); 
+				 $.ajax({ 
+            	     async:false,   			          	       		
+				     type:"get",
+				     url:"qlistekPole2.jsp?RandStr="+Math.random(), 
+				     success:function(d){				                 
+				            $("#divp2i").html(d);       
+				     }              			
+				   });
+				 $.ajax({ 
+            	     async:false,   			          	       		
+				     type:"get",
+				     url:"qlistekmeasure2.jsp?RandStr="+Math.random(), 
+				     success:function(d){				                 
+				            $("#divp2j").html(d);       
+				     }              			
+				   });
+				 $.ajax({ 
+            	     async:false,   			          	       		
+				     type:"get",
+				     url:"qlistekspecial2.jsp?RandStr="+Math.random(), 
+				     success:function(d){				                 
+				            $("#divp2k").html(d);       
+				     }              			
+				   });         
+				                       
+            	 $.ajax({ 			          	       		
+				     type:"get",
+				     url:"kong.jsp", 
+				     success:function(d){
+				                 
+				            $("#divdh").html(d);
+				     		var did=document.getElementById("d1").value;  	
+							document.getElementById(did).style.background="url(images/TJT/96.png)";
+							document.getElementById(did).style.color="red";	       
+				     }              
+			
+				   });*/
+		   
+	  });
+	        function openhref(src){
+   
+       		 $.ajax({ 
+			     async:false,    	       		
+				     type:"get",
+				     url:src+"&RandStr="+Math.random(), 
+				     success:function(d){
+				                 
+				                 $("#divp2c2a").html(d);  
+	                              
+	                             }
+	                            
+	                        
+			
+				});	
+			}	      
+      
+  
+    </script>
+  </head>
+  
+  <body>
+    <input id="doutid" type="hidden" value="2">
+    <div id="indexdiv"> 
+       <div id="divp1">
+       </div>
+       <div id="divp2">       
+                            搜索
+       </div> 
+       <div id="divp3">  
+                           导航                                
+       </div>
+       <div class="divp3_1">      	   
+            <ul class="d3_ul">
+		      <li class="d3_li" id="dl2">  
+		                      商品类别          
+		      </li>			              
+	        </ul> 		         
+       </div>       
+       <div id="divp4"> 
+       
+           <div class="divp4_1" id="divp4_1">轮播图</div> 
+           
+       </div>                                 
+
+       <div id="divp5" onmouseover="rechangex1()">
+           <div class="divp5a" id="divp5a_1"> 
+                                              推荐                              
+           </div> 
+           <div class="divp5b" id="divp5b">  
+                                               热卖  
+           </div> 
+           <div class="divp5c" id="divp5c_1" style="border: 0px">
+           2F
+           </div>   
+           <div class="divp5c">
+           3F
+           </div>  
+           <div class="divp5c">  
+           4F
+           </div> 
+           <div class="divp5c">  
+           5F     
+           </div> 
+           <div class="divp5c"> 
+           6F      
+           </div> 
+           <div class="divp5c">  
+           7F     
+           </div> 
+           <div class="divp5c"> 
+           8F      
+           </div> 
+                    
+       </div>    
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping 
+	package="com.jobchat.entity">
+
+	<class name="Menu" table="`menus`" lazy="true">
+		<comment>Users may bid for or sell auction items.</comment>
+		
+		<id name="mid" column="mid">
+			<generator class="assigned"/>
+		</id>
+		<property name="mtitle" column="mtitle"></property>
+		<property name="nurl" column="nurl"></property>
+		<property name="parentId" column="parentId"></property>
+		<set name="powers" lazy="true">
+			<key column="mid"></key>
+			<one-to-many class="Power" />
+		</set>
+	</class>
+	
+</hibernate-mapping>

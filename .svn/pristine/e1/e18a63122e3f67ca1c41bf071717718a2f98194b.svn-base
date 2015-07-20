@@ -1,0 +1,89 @@
+package com.jobchat.entity;
+
+import java.util.HashSet;
+import java.util.Set;
+
+import com.google.gson.annotations.Expose;
+
+/**
+ * JUserskilltype entity. @author MyEclipse Persistence Tools
+ */
+
+public class JUserskilltype implements java.io.Serializable {
+
+	// Fields
+
+	private Integer userskilltypeId;
+	@Expose
+	private String userskilltypeName;
+	@Expose
+	private String ptime;
+	@Expose
+	private short status;
+	private Set JUserskills = new HashSet(0);
+
+	// Constructors
+
+	/** default constructor */
+	public JUserskilltype() {
+	}
+
+	/** minimal constructor */
+	public JUserskilltype(String userskilltypeName, String ptime, short status) {
+		this.userskilltypeName = userskilltypeName;
+		this.ptime = ptime;
+		this.status = status;
+	}
+
+	/** full constructor */
+	public JUserskilltype(String userskilltypeName, String ptime, short status,
+			Set JUserskills) {
+		this.userskilltypeName = userskilltypeName;
+		this.ptime = ptime;
+		this.status = status;
+		this.JUserskills = JUserskills;
+	}
+
+	// Property accessors
+
+	public Integer getUserskilltypeId() {
+		return this.userskilltypeId;
+	}
+
+	public void setUserskilltypeId(Integer userskilltypeId) {
+		this.userskilltypeId = userskilltypeId;
+	}
+
+	public String getUserskilltypeName() {
+		return this.userskilltypeName;
+	}
+
+	public void setUserskilltypeName(String userskilltypeName) {
+		this.userskilltypeName = userskilltypeName;
+	}
+
+	public String getPtime() {
+		return this.ptime;
+	}
+
+	public void setPtime(String ptime) {
+		this.ptime = ptime;
+	}
+
+	public short getStatus() {
+		return this.status;
+	}
+
+	public void setStatus(short status) {
+		this.status = status;
+	}
+
+	public Set getJUserskills() {
+		return this.JUserskills;
+	}
+
+	public void setJUserskills(Set JUserskills) {
+		this.JUserskills = JUserskills;
+	}
+
+}

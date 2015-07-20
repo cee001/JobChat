@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.jobchat.entity.JUser" table="j_user" catalog="sunhome">
+        <id name="userId" type="java.lang.Integer">
+            <column name="user_id" />
+            <generator class="increment" />
+        </id>
+        <property name="userPhone" type="java.lang.String">
+            <column name="user_phone" length="100" not-null="true" />
+        </property>
+        <property name="userPassword" type="java.lang.String">
+            <column name="user_password" length="200" not-null="true" />
+        </property>
+        <property name="userNikename" type="java.lang.String">
+            <column name="user_nikename" length="200" />
+        </property>
+        <property name="userTime" type="java.lang.String">
+            <column name="user_time" length="200" not-null="true" />
+        </property>
+        <property name="userStatus" type="java.lang.Integer">
+            <column name="user_status" not-null="true" />
+        </property>
+        <property name="userImgface" type="java.lang.String">
+            <column name="user_imgface" length="200" />
+        </property>
+        <property name="userType" type="java.lang.Short">
+            <column name="user_type" not-null="true" />
+        </property>
+        <property name="userRefreshtime" type="java.lang.String">
+            <column name="user_refreshtime" length="200" not-null="true" />
+        </property>
+         <property name="userOutid" type="java.lang.Integer">
+            <column name="user_outid" not-null="true" />
+        </property>       
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,45 @@
+package com.jobchat.service;
+
+import java.util.ArrayList;
+
+
+
+import com.jobchat.dao.CommonDAO;
+import com.jobchat.entity.Menu;
+import com.jobchat.entity.Power;
+import com.jobchat.entity.RoleInfo;
+
+public class PowerServeice {
+	private CommonDAO cd;
+
+	public CommonDAO getCd() {
+		return cd;
+	}
+
+	public void setCd(CommonDAO cd) {
+		this.cd = cd;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public ArrayList<Power> getPowerByRoleId(int rid){
+		String hql="from Power p where p.roleInfo.roleId='"+rid+"'";
+		return (ArrayList<Power>)cd.getObjects(hql); 
+	}
+	
+	public void doUpdatePower(int rid,String[] mids){
+		//��ɾ��˽�ɫ�µ�˵��Ȩ�����¼ӽ�ɫ
+		String sql="delete from powers where rid="+rid;
+		cd.delobjBySQL(sql);
+		RoleInfo ri=new RoleInfo();
+		ri.setRoleId(rid);
+		for(String s:mids){
+			Menu m=new Menu();
+			m.setMid(Integer.parseInt(s));
+		    Power p=new Power();
+		    p.setMenu(m);
+		    p.setRoleInfo(ri);
+		    cd.addObject(p);
+		}
+	}
+
+}

@@ -1,0 +1,15 @@
+@CHARSET "UTF-8";
+
+img {
+
+max-width: 600px;
+
+width: expression(this.width>600?"600px":this.width+"px");
+
+overflow: hidden;
+
+}
+
+
+
+    

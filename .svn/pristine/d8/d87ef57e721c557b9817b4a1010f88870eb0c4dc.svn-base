@@ -1,0 +1,92 @@
+﻿<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>fileDialog Examples</title>
+	    <script type="text/javascript" src="js/jquery.js"></script>	 
+		 <style type="text/css">
+		 	
+		.b1t1{
+			background:#00a9ec;
+		}
+		.b1t2{
+			background:#6CA6CD;
+		}	
+		 </style>	    
+	    <script type="text/javascript">
+
+
+  	    function changeif(){
+  
+	        document.getElementById("d12").style.display="none";	   
+ 
+	    }  
+	    	 
+         function Search1(){   
+                  
+                  document.getElementById("d12").style.display="block";
+                  var title=document.getElementById("title7").value;   
+
+                  $("#d10").load("list_searchmsg.jsp?title="+title);     
+			             
+         }
+
+   	    function clearl(){
+			 d100.innerHTML = "";
+			
+			}			
+		function showmode(){
+		
+		       var type= document.getElementById("meg13").value;  
+		  
+		       if(type==0){
+		             	 d100.innerHTML = " >请选择文件类别";
+			   return false;               	 
+		       }  
+		       document.getElementById("df1").style.display="block";
+               document.getElementById("if10").src="file-d.jsp?type="+type;
+		       }     
+		       
+		                  
+	     </script>	
+	</head>
+	<body>
+	   <table   border="1" bordercolor="#B2DFEE" align="center" style="border-collapse: collapse;width:95%;line-height: 25px;font-size:15px;" cellpadding="0" cellspacing="0">   
+      <tr>     
+          <td bgcolor="#F0F8FF">
+            <div style="font-size:15px;">
+                 <div  style="margin-top: 5px;margin-left: 12px"> 
+                  <b>会员搜索</b> 
+                 </div>
+            </div>
+          </td>   
+      </tr>
+      <tr>     
+          <td>
+               <div style="width: 100%;height:100px;text-align: center;">
+		          <ul style="margin-top:0px;padding:0px;margin-left:30.5%;width: 100%;list-style-type: none">
+		           		        <!--------  搜索         ------->	        	           		        
+		            <li style="margin-top:30px;float: left;width: 30%; ">
+		               <input id="title7"  style="width:100%;height: 28px;border: 1px solid #00a9ec;background: url(images/dlym/zhd.png);background-size:100% 100%;" onkeydown="this.style.background='none'" type="text" name="title" >		
+		            </li>		        
+		            <li style="margin-top:30px;margin-left:0px;float: left">	
+		              <input id="sou1" class="b1t1" onclick="Search1()" onmousemove="changes()" onmouseout="rechanges()" style="width:100px;height:32px;border: 0px;font-size:16px;color:#FFFFFF;" 
+		                     type="button" value="搜 索">			        				            			              				                      			                		           
+		            </li>		
+		            	        	
+		          </ul>	             
+		       </div>
+          </td>
+       </tr> 
+       <tr>     
+          <td >
+             <div id="d12" style="display: none;width:100%;">
+		         <div id="d10"></div>          		
+		     </div>
+          </td>
+       </tr>  
+  
+  </table>
+
+	</body>
+</html>

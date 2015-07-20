@@ -1,0 +1,83 @@
+package com.jobchat.entity;
+
+import java.util.HashSet;
+import java.util.Set;
+
+/**
+ * JCompanywelfaretype entity. @author MyEclipse Persistence Tools
+ */
+
+public class JCompanywelfaretype implements java.io.Serializable {
+
+	// Fields
+
+	private Integer companywelfaretypeId;
+	private String companywelfaretypeName;
+	private String ptime;
+	private short status;
+	private Set JCompanywelfares = new HashSet(0);
+
+	// Constructors
+
+	/** default constructor */
+	public JCompanywelfaretype() {
+	}
+
+	/** minimal constructor */
+	public JCompanywelfaretype(String ptime, short status) {
+		this.ptime = ptime;
+		this.status = status;
+	}
+
+	/** full constructor */
+	public JCompanywelfaretype(String companywelfaretypeName, String ptime,
+			short status, Set JCompanywelfares) {
+		this.companywelfaretypeName = companywelfaretypeName;
+		this.ptime = ptime;
+		this.status = status;
+		this.JCompanywelfares = JCompanywelfares;
+	}
+
+	// Property accessors
+
+	public Integer getCompanywelfaretypeId() {
+		return this.companywelfaretypeId;
+	}
+
+	public void setCompanywelfaretypeId(Integer companywelfaretypeId) {
+		this.companywelfaretypeId = companywelfaretypeId;
+	}
+
+	public String getCompanywelfaretypeName() {
+		return this.companywelfaretypeName;
+	}
+
+	public void setCompanywelfaretypeName(String companywelfaretypeName) {
+		this.companywelfaretypeName = companywelfaretypeName;
+	}
+
+	public String getPtime() {
+		return this.ptime;
+	}
+
+	public void setPtime(String ptime) {
+		this.ptime = ptime;
+	}
+
+	public short getStatus() {
+		return this.status;
+	}
+
+	public void setStatus(short status) {
+		this.status = status;
+	}
+
+	public Set getJCompanywelfares() {
+		return this.JCompanywelfares;
+	}
+
+	public void setJCompanywelfares(Set JCompanywelfares) {
+		this.JCompanywelfares = JCompanywelfares;
+	}
+
+}

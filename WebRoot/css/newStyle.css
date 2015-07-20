@@ -1,0 +1,49 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td{margin:0;padding:0;}
+
+img{ border:0;}
+ul,li{ list-style:none;}
+table{ border-collapse:collapse;}
+
+#indexdiv { margin:0 auto;border:0;width: 100%;background;#FFFFFF height:100%;padding:0;overflow:hidden;} 
+
+#divp1  {margin:0 auto;margin-top:0px; }
+
+#divp1a  {margin:0 auto;margin-top:0px;padding:0px;width:1000px;}
+#divp1a ul{float:left;margin:0 2px;height:30px;padding:0px;}
+#divp1a ul li{float:left;margin:0 2px;margin-top:6px;margin-left:2px;}
+#divv2  {margin-top: 30px;width:1000px;margin:0 auto;}
+#divv20  {visibility: visible;position:absolute;margin-top: 30px;width:1000px;margin:0 auto;}
+#divv2  ul{list-style-type: none;padding: 0px;margin-top:0px;}
+#divv2a  {margin-top:0px;margin-left:0px;text-align:left;overflow:hidden;width:1000px;height:260px;}
+#divv2b  {margin-top:-5px;margin-left:0px;text-align:left;overflow:hidden;width:1000px;height:40px;background: #DBDBDB;}
+#divv2c  {margin-top:10px;margin-left:0px;text-align:left;overflow:hidden;width:1000px;height:40px;}
+
+#divv2d  {margin-top:0px;margin-left:0px;text-align:left;overflow:hidden;width:1000px;height:auto;}
+#divv2d1 {margin-top:0px;margin-left:0px;float: left;width:680px;border: 1px solid;border-color:red;}
+#divv2d1_1 {width:100%;margin-top: 0px;}
+#divv2d1_1 ul{ margin-top: 30px;margin-left:15px;padding: 0px;width:650px;list-style-type: none;text-align: center;}
+#divv2d1_1 ul li{margin-top: 30px;widht:100%;font-size:22px;}
+
+#divv2d2 { margin-top:0px; margin-left:0px;float: right;width:300px;height:auto;border: 1px solid;border-color:#A8A8A8;}
+#divv2d2  ul{list-style-type: none;padding: 0px;}
+#divv2d2  ul li{margin-top:0px;margin-left:0px;overflow:hidden;width:100%;height:300px;}
+#divv2d2b {margin-top:0px;margin-left:0px;overflow:hidden;width:100%;height:40px;}
+
+#divv2e  {margin-top:20px;margin-left:0px;text-align:left;width:1000px;height:200px;background: #F7F7F7}
+
+  
+
+
+
+
+
+
+
+
+
+
+
+

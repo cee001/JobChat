@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<something-else-entirely>
+<proxool> 
+
+<alias>mysql</alias>
+
+<driver-url>
+jdbc:mysql://xheyou.com:3306/jobchat?autoReconnect=true
+</driver-url>
+
+
+<driver-class>com.mysql.jdbc.Driver</driver-class> 
+
+<driver-properties>
+<property name="user" value="cheke" />
+<property name="password" value="cheke123456" />
+<property name="hibernate.connection.characterEncoding" value="UTF-8" />
+</driver-properties>
+
+<house-keeping-sleep-time>90000</house-keeping-sleep-time>
+
+<maximum-new-connections>20</maximum-new-connections>
+
+<prototype-count>3</prototype-count>
+
+<maximum-connection-count>20</maximum-connection-count>
+
+
+<minimum-connection-count>3</minimum-connection-count>
+
+<test-before-use>true</test-before-use>
+<test-after-use>true</test-after-use>
+
+<house-keeping-test-sql>SELECT CURRENT_USER</house-keeping-test-sql>
+
+</proxool>
+</something-else-entirely>

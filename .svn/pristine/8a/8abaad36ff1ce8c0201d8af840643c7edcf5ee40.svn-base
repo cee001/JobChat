@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping 
+	package="com.jobchat.entity">
+
+	<class name="Admin" table="`admin`" lazy="true">
+		<comment>Users may bid for or sell auction items.</comment>		
+		<id name="id" column="id">
+			<generator class="native"/>
+		</id>
+		<property name="loginId" column="loginId"></property>
+		<property name="loginPwd" column="loginPwd"></property>
+		<property name="regDate" column="regDate" ></property>
+		<many-to-one name="roleInfo" column="rid" lazy="false"></many-to-one> 
+		
+	</class>
+	
+</hibernate-mapping>

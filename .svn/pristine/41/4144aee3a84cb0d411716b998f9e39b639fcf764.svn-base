@@ -1,0 +1,95 @@
+package com.jobchat.service;
+
+import java.util.ArrayList;
+import com.jobchat.dao.CommonDAO;
+import com.jobchat.entity.JUserinfo;
+public class UserinfoService {
+	private CommonDAO cd;
+
+	public CommonDAO getCd() {
+		return cd;
+	}
+
+	public void setCd(CommonDAO cd) {
+		this.cd = cd;
+	}
+	
+	//���
+	public boolean addUserinfo(JUserinfo u){
+		try{
+			cd.addObject(u);
+			return true;
+			
+		}catch(Exception ex){
+			return false;
+		}
+		
+	}
+	   //�޸ġ�
+    public boolean updateUserinfo(JUserinfo u){
+        try{
+        	cd.updateObject(u);
+        	return true;
+        }catch(Exception ex){
+        	return false;
+        }
+    }
+    
+    //ɾ��
+    public boolean delUserinfo(JUserinfo u){
+        try{
+        	cd.delObject(u);
+        	return true;
+        }catch(Exception ex){
+        	return false;
+        }    
+
+    }
+    
+    //��ȡ����
+    public JUserinfo getSUserinfoById(int id){
+
+    	return (JUserinfo)cd.getObject(JUserinfo.class, id);
+    }
+    
+	//��ȡ����
+	@SuppressWarnings("unchecked")
+	public JUserinfo getSUserinfo(int userId){
+		JUserinfo u=null;
+		String hql="from JUserinfo where user_id='"+userId+"'";
+		ArrayList<JUserinfo> ls=(ArrayList<JUserinfo>)cd.getObjects(hql);
+		if(ls!=null&&ls.size()>0){
+			System.out.println("��½�ɹ���");
+			u=(JUserinfo)ls.get(0);
+		}else{
+			System.out.println("��½���ɹ���");
+		}
+		return u;
+	}
+    
+    
+	//��ȡ����
+	@SuppressWarnings("unchecked")
+	public ArrayList<JUserinfo> getSUserinfos(){
+		String hql="from JUserinfo";
+		return (ArrayList<JUserinfo>)cd.getObjects(hql);
+	}
+	
+	//��ҳ��ȡ����
+	public int getCounts(){
+		String hql="from JUserinfo";
+		return cd.getObjects(hql).size();
+		
+	}
+	public int getcount(){
+		String hql="select count(*) from JUserinfo";
+		return Integer.parseInt(cd.getObjects(hql).get(0).toString());
+	}
+	
+	@SuppressWarnings("unchecked")
+	public ArrayList<JUserinfo> getSUserinfoByPageNum(int pageNum,int pageSize){
+		String hql="from JUserinfo";
+		return (ArrayList<JUserinfo>)cd.getObjectByPageNum(hql, pageNum, pageSize);
+	}
+	
+}

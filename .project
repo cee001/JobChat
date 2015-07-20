@@ -1,0 +1,7 @@
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.wst.jsdt.core.javascriptValidator</name>
+			<arguments>
+			</arguments>
+		<buildCommand>
+			<name>com.genuitec.eclipse.j2eedt.core.WebClasspathBuilder</name>

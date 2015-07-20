@@ -1,0 +1,127 @@
+package com.jobchat.service;
+
+import java.util.ArrayList;
+
+import com.jobchat.dao.CommonDAO;
+import com.jobchat.entity.JUserforjob;
+
+
+
+public class UserforjobService {
+	private CommonDAO cd;
+
+	public CommonDAO getCd() {
+		return cd;
+	}
+
+	public void setCd(CommonDAO cd) {
+		this.cd = cd;
+	}
+	
+	
+	
+	//���
+	public boolean addJUserforjob(JUserforjob u){
+		try{
+			cd.addObject(u);
+			return true;
+			
+		}catch(Exception ex){
+			return false;
+		}
+		
+	}
+	   //�޸ġ�
+    public boolean updateJUserforjob(JUserforjob u){
+        try{
+        	cd.updateObject(u);
+        	return true;
+        }catch(Exception ex){
+        	return false;
+        }
+    }
+    
+    //ɾ��
+    public boolean delJUserforjob(JUserforjob u){
+        try{
+        	cd.delObject(u);
+        	return true;
+        }catch(Exception ex){
+        	return false;
+        }    
+
+    }
+    
+    //��ȡ����
+    public JUserforjob getTForjobById(int id){
+
+    	return (JUserforjob)cd.getObject(JUserforjob.class, id);
+    }
+    
+	public JUserforjob getJUserforjob(int uinfoId){
+		JUserforjob u=null;
+		String hql="from JUserforjob where userinfo_id='"+uinfoId+"'";
+		@SuppressWarnings("unchecked")
+		ArrayList<JUserforjob> ls=(ArrayList<JUserforjob>)cd.getObjects(hql);
+		if(ls!=null&&ls.size()>0){	
+			u=(JUserforjob)ls.get(0);
+		}else{
+
+		}
+		return u;
+	}   
+    
+	//��ȡ����
+	@SuppressWarnings("unchecked")
+	public ArrayList<JUserforjob> getAllUinfo(int uinfoId){
+		String hql="from JUserforjob where userinfo_id = '"+uinfoId+"' and status = '0'";
+		return (ArrayList<JUserforjob>)cd.getObjects(hql);
+	}
+	
+	//��ҳ��ȡ����
+	public int getCounts(){
+		String hql="from JUserforjob ";
+		return cd.getObjects(hql).size();
+		
+	}
+	public int getcount(int resumeid,String key){
+		String hql="select count(*) from JUserforjob where userforjob_status =0";
+		if (resumeid != -1) {
+			hql = hql + "and resume_id = " + resumeid;
+		}
+		if (key != null) {
+			hql = hql + "and forjob_tittle like '%"+key+"%' ";
+		}
+		return Integer.parseInt(cd.getObjects(hql).get(0).toString());
+	}
+	
+	@SuppressWarnings("unchecked")
+	public ArrayList<JUserforjob> getTForjobByPageNum(int pageNum,int pageSize){
+		String hql="from JUserforjob where forjobStatus =0";
+		return (ArrayList<JUserforjob>)cd.getObjectByPageNum(hql, pageNum, pageSize);
+	}
+	public int getcount1(int usid){
+		String hql="select count(*) from JUserforjob where userStatus  ='"+usid+"'";
+		return Integer.parseInt(cd.getObjects(hql).get(0).toString());
+	}
+	
+	@SuppressWarnings("unchecked")
+	public ArrayList<JUserforjob> getTForjobByPageNum1(int pageNum,int pageSize,int rid){
+		String hql="from JUserforjob where resume_id  ='"+rid+"'";
+		return (ArrayList<JUserforjob>)cd.getObjectByPageNum(hql, pageNum, pageSize);
+	}
+	
+	@SuppressWarnings("unchecked")
+	public ArrayList<JUserforjob> getTForjobForUserByPageNum(int resumeid,String key,int pageNum, int pageSize) {
+		System.out.println(key);
+		String hql = "from JUserforjob where forjob_status =0";
+		if (resumeid != -1) {
+			hql = hql + "and resume_id = " + resumeid;
+		}
+		if (key != null) {
+			hql = hql + "and userforjob_tittle like '%"+key+"%' ";
+		}	
+		return (ArrayList<JUserforjob>) cd.getObjectByPageNum(hql, pageNum,pageSize);
+	}
+		
+}

@@ -1,0 +1,184 @@
+package com.jobchat.entity;
+
+import java.util.HashSet;
+import java.util.Set;
+
+/**
+ * JUser entity. @author MyEclipse Persistence Tools
+ */
+
+@SuppressWarnings("serial")
+public class JUser implements java.io.Serializable {
+
+	// Fields
+
+	private Integer userId;
+	private String userPhone;
+	private String userPassword;
+	private String userNikename;
+	private String userTime;
+	private Integer userStatus;
+	private String userImgface;
+	private short userType;
+	private String userRefreshtime;
+	private Integer userOutid;
+	private Set JCompanies = new HashSet(0);
+	private Set JFriendsesForUserId = new HashSet(0);
+	private Set JUserinfos = new HashSet(0);
+	private Set JFriendsesForTouserId = new HashSet(0);
+
+	// Constructors
+
+	/** default constructor */
+	public JUser() {
+	}
+
+	/** minimal constructor */
+	public JUser(String userPhone, String userPassword, String userTime,
+			Integer userStatus, short userType, String userRefreshtime,
+			Integer userOutid) {
+		this.userPhone = userPhone;
+		this.userPassword = userPassword;
+		this.userTime = userTime;
+		this.userStatus = userStatus;
+		this.userType = userType;
+		this.userRefreshtime = userRefreshtime;
+		this.userOutid = userOutid;
+	}
+
+	/** full constructor */
+	public JUser(String userPhone, String userPassword, String userNikename,
+			String userTime, Integer userStatus, String userImgface,
+			short userType, String userRefreshtime, Integer userOutid,
+			Set JCompanies, Set JFriendsesForUserId, Set JUserinfos,
+			Set JFriendsesForTouserId) {
+		this.userPhone = userPhone;
+		this.userPassword = userPassword;
+		this.userNikename = userNikename;
+		this.userTime = userTime;
+		this.userStatus = userStatus;
+		this.userImgface = userImgface;
+		this.userType = userType;
+		this.userRefreshtime = userRefreshtime;
+		this.userOutid = userOutid;
+		this.JCompanies = JCompanies;
+		this.JFriendsesForUserId = JFriendsesForUserId;
+		this.JUserinfos = JUserinfos;
+		this.JFriendsesForTouserId = JFriendsesForTouserId;
+	}
+
+	// Property accessors
+
+	public Integer getUserId() {
+		return this.userId;
+	}
+
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
+
+	public String getUserPhone() {
+		return this.userPhone;
+	}
+
+	public void setUserPhone(String userPhone) {
+		this.userPhone = userPhone;
+	}
+
+	public String getUserPassword() {
+		return this.userPassword;
+	}
+
+	public void setUserPassword(String userPassword) {
+		this.userPassword = userPassword;
+	}
+
+	public String getUserNikename() {
+		return this.userNikename;
+	}
+
+	public void setUserNikename(String userNikename) {
+		this.userNikename = userNikename;
+	}
+
+	public String getUserTime() {
+		return this.userTime;
+	}
+
+	public void setUserTime(String userTime) {
+		this.userTime = userTime;
+	}
+
+	public Integer getUserStatus() {
+		return this.userStatus;
+	}
+
+	public void setUserStatus(Integer userStatus) {
+		this.userStatus = userStatus;
+	}
+
+	public String getUserImgface() {
+		return this.userImgface;
+	}
+
+	public void setUserImgface(String userImgface) {
+		this.userImgface = userImgface;
+	}
+
+	public short getUserType() {
+		return this.userType;
+	}
+
+	public void setUserType(short userType) {
+		this.userType = userType;
+	}
+
+	public String getUserRefreshtime() {
+		return this.userRefreshtime;
+	}
+
+	public void setUserRefreshtime(String userRefreshtime) {
+		this.userRefreshtime = userRefreshtime;
+	}
+
+	public Integer getUserOutid() {
+		return this.userOutid;
+	}
+
+	public void setUserOutid(Integer userOutid) {
+		this.userOutid = userOutid;
+	}
+
+	public Set getJCompanies() {
+		return this.JCompanies;
+	}
+
+	public void setJCompanies(Set JCompanies) {
+		this.JCompanies = JCompanies;
+	}
+
+	public Set getJFriendsesForUserId() {
+		return this.JFriendsesForUserId;
+	}
+
+	public void setJFriendsesForUserId(Set JFriendsesForUserId) {
+		this.JFriendsesForUserId = JFriendsesForUserId;
+	}
+
+	public Set getJUserinfos() {
+		return this.JUserinfos;
+	}
+
+	public void setJUserinfos(Set JUserinfos) {
+		this.JUserinfos = JUserinfos;
+	}
+
+	public Set getJFriendsesForTouserId() {
+		return this.JFriendsesForTouserId;
+	}
+
+	public void setJFriendsesForTouserId(Set JFriendsesForTouserId) {
+		this.JFriendsesForTouserId = JFriendsesForTouserId;
+	}
+
+}

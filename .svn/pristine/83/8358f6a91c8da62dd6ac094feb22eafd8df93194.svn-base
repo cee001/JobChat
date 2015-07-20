@@ -1,0 +1,91 @@
+package com.jobchat.service;
+
+import java.util.ArrayList;
+import com.jobchat.dao.CommonDAO;
+import com.jobchat.entity.JMessages;
+
+public class MessagesService {
+	private CommonDAO cd;
+
+	public CommonDAO getCd() {
+		return cd;
+	}
+
+	public void setCd(CommonDAO cd) {
+		this.cd = cd;
+	}
+	
+
+	//添加
+	public boolean addJMessages(JMessages u){
+		try{
+			cd.addObject(u);
+			System.out.println("ok");
+			return true;
+			
+		}catch(Exception ex){
+			System.out.println("no``");
+			return false;
+		}
+		
+	}
+	   //修改
+    public boolean updateJMessages(JMessages u){
+        try{
+        	cd.updateObject(u);
+        	return true;
+        }catch(Exception ex){
+        	return false;
+        }
+    }
+    
+    //删除
+    public boolean delJMessages(JMessages u){
+        try{
+        	cd.delObject(u);
+        	return true;
+        }catch(Exception ex){
+        	return false;
+        }    
+
+    }
+    
+    //单个获取
+    public JMessages getJMessagesById(int id){
+
+    	return (JMessages)cd.getObject(JMessages.class, id);
+    }
+    
+    
+	//获取所有
+	@SuppressWarnings("unchecked")
+	public ArrayList<JMessages> getSMessagess(){
+		String hql="from JMessages";
+		return (ArrayList<JMessages>)cd.getObjects(hql);
+	}
+	
+	//获取总数
+	public int getCounts(){
+		String hql="from JMessages";
+		return cd.getObjects(hql).size();
+		
+	}
+	public int getcount(int uid){
+		String hql="select count(*) from JMessages where messages_status!='1'";
+		if(uid != -1){
+			hql += "and user_id = '" + uid+"'";
+		}
+		return Integer.parseInt(cd.getObjects(hql).get(0).toString());
+	}
+	
+	@SuppressWarnings("unchecked")
+	public ArrayList<JMessages> getJMessagesByPageNum(int uid,int pageNum,int pageSize){
+		String hql="from JMessages where messages_status!='1'";
+		if(uid != -1){
+			hql += "and user_id = '" +uid+"'";
+		}
+		hql += " order by messages_id desc";
+		return (ArrayList<JMessages>)cd.getObjectByPageNum(hql, pageNum, pageSize);
+	}
+	
+}

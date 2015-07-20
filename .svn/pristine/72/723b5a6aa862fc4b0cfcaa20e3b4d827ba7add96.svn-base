@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>车轮网带动画效果左右JS焦点图轮播切换代码</title>
+
+
+<link rel="stylesheet" href="css/m_lbstyle.css" />
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="js/jquery.DB_tabMotionBanner.min.js"></script>
+
+</head>
+<body>
+<div class="DB_tab25">
+	<ul class="DB_bgSet">
+		<li style="background:url(images/bj1.jpg) no-repeat 100% 100%;"></li>
+		<li style="background:#e66c57"></li>
+		<li style="background:#202f3d"></li>
+		<li style="background:url(images/bj2.jpg) no-repeat 100% 100%;"></li>
+	</ul>
+
+	<ul class="DB_imgSet">
+		<li onClick="javascript:window.location.href='http://www.17sucai.com';">
+			<img class="DB_1_1" src="images/kjzname.png" alt="">
+			<img class="DB_1_2" src="images/kjzjx.png" alt="">
+            <img class="DB_1_3" src="images/bn_01.png" alt="">
+		</li>
+
+		<li onClick="javascript:window.location.href='http://www.17sucai.com';">
+			<img class="DB_2_1" src="images/addchelun.png" alt="">
+			<img class="DB_2_2" src="images/addt.png" alt="">
+			<img class="DB_2_3" src="images/zw.png" alt="">
+		</li>
+
+		<li onClick="javascript:window.location.href='http://www.17sucai.com';">
+			<img class="DB_3_1" src="images/bn32.png" alt="">
+			<img class="DB_3_2" src="images/bn33.png" alt="">
+			<img class="DB_3_3" src="images/bn3.png" alt="">
+		</li>
+
+		<li onClick="javascript:window.location.href='http://www.17sucai.com';">
+			<img class="DB_4_1" src="images/bn_04.png" alt="">
+			<img class="DB_4_2" src="images/bn_042.png" alt="">
+			<img class="DB_4_3" src="images/bn_043.png" alt="">
+			<img class="DB_4_4" src="images/bn_044.png" alt="">
+        </li>
+	</ul>
+
+	<div class="DB_menuWrap">
+		<ul class="DB_menuSet">
+			<li><img src="images/btn_off.png" alt=""></li>
+			<li><img src="images/btn_off.png" alt=""></li>
+			<li><img src="images/btn_off.png" alt=""></li>
+			<li><img src="images/btn_off.png" alt=""></li>
+		</ul>
+		<div class="DB_next"><img src="images/nextArrow.png" alt="NEXT"></div>
+		<div class="DB_prev"><img src="images/prevArrow.png" alt="PREV"></div>
+	</div>
+
+</div>
+<script type="text/javascript">
+$('.DB_tab25').DB_tabMotionBanner({
+	key:'b28551',
+	autoRollingTime:5000,                            
+	bgSpeed:500,
+	motion:{
+		DB_1_1:{left:-50,opacity:0,speed:1000,delay:500},
+		DB_1_2:{left:-50,opacity:0,speed:1000,delay:1000},
+		DB_1_3:{left:100,opacity:0,speed:1000,delay:1500},
+		DB_2_1:{top:50,opacity:0,speed:1000,delay:500},
+		DB_2_2:{top:50,opacity:0,speed:1000,delay:1000},
+		DB_2_3:{top:100,opacity:0,speed:1000,delay:1500},
+		DB_3_1:{left:-50,opacity:0,speed:1000,delay:500},
+		DB_3_2:{top:50,opacity:0,speed:1000,delay:1000},
+		DB_3_3:{top:0,opacity:0,speed:1000,delay:1500},
+		DB_4_1:{top:50,opacity:0,speed:1000,delay:500},
+		DB_4_2:{top:0,opacity:0,speed:1000,delay:1000},
+		DB_4_3:{top:0,opacity:0,speed:1000,delay:1500},
+		DB_4_4:{top:30,opacity:0,speed:1000,delay:2000},
+		DB_4_5:{top:100,opacity:0,speed:1000,delay:3000},
+		end:null
+	}
+});
+</script>
+</body>
+</html>
+
+
